@@ -1,0 +1,44 @@
+.footer {
+
+}
+
+.footer__wrapper {
+    background-color: var(--gray-light);
+    height: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer__contacts {
+    max-width: 400px;
+    width: 100%;
+    font-size: 1.125rem;
+}
+
+.footer__logo {
+
+}
+
+.footer__socialLinks {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer__item {
+    height: 55px; /* почему не работает fit-content */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 48px;
+}
+
+.footer__item:last-child {
+    margin-right: 0;
+}

@@ -1,0 +1,56 @@
+.course {
+    padding: 60px 0 110px;
+}
+
+.course__title {
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.lesson {
+    margin-top: 64px;
+}
+
+.lesson__title {
+    font-size: 48px;
+    text-align: center;
+}
+
+.lesson__videoBlock {
+    max-width: 1440px;
+    width: 100%;
+    height: 670px;
+    margin-top: 82px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('../images/content/video.png');
+}
+
+.lesson__other {
+    margin-top: 36px;
+}
+
+.lesson__subtitle {
+    font-size: 48px;
+}
+
+.lesson__linksBlock {
+    margin-top: 12px;
+}
+
+.lesson__item {
+    color: var(--blue-primary);
+    margin-bottom: 8px;
+}
+
+.lesson__link {
+    font-size: 1.5rem;
+    color: var(--blue-primary);
+    text-decoration: none;
+}
+
+.lesson__link:hover {
+    color: var(--blue-secondary);
+    text-decoration: underline;
+}
