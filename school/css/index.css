@@ -73,3 +73,24 @@
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+@media (max-width: 992px) {
+
+    .slideItem__content {
+        padding-top: 48px;
+        flex-direction: column;
+    }
+
+    .slideItem__left {
+        max-width: 50%;
+    }
+
+    .slideItem__title {
+        margin-bottom: 32px;
+        font-size: 2rem;
+    }
+
+    .slideItem__descriptionLine {
+        font-size: 1.125rem;
+    }
+}
