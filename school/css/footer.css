@@ -1,8 +1,4 @@
 .footer {
-
-}
-
-.footer__wrapper {
     background-color: var(--gray-light);
     height: 150px;
     display: flex;

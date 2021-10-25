@@ -1,8 +1,4 @@
 .header {
-
-}
-
-.header__wrapper {
     background-color: var(--blue-secondary);
     height: 150px;
     display: flex;
