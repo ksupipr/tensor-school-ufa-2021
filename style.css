@@ -1,0 +1,214 @@
+
+body{
+	font-family: Montserrat;
+	font-size: 19px;
+	margin: 0;
+	color: #383838;
+	overflow-x: hidden;
+}
+a{
+	text-decoration: none;
+	color: black;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+h1{
+	font-size: 48px;
+	text-transform: uppercase;
+}
+
+h3{
+	font-size: 30px;
+}
+
+p{margin: 0 auto;}
+
+
+span{
+	color: orange ;
+	font-weight: bold;
+}
+.header__top{
+	height: 100px;
+	position: fixed;
+	width: 100%;
+	background-color: white;
+	box-shadow: 5px 1px 3px grey;
+}
+
+.container{
+	width: 1170px;
+	margin: 0 auto;
+	height: inherit;
+}
+
+.header__nav{
+	display: flex;
+	justify-content: space-between;
+	width: inherit;
+	height: inherit;
+	align-items: center;
+}
+
+.menu__list{
+	list-style: none;
+	display: flex;
+	padding: 0px;
+	justify-content: space-between;
+}
+
+
+.menu__link{
+	text-decoration: none;
+	color: black;
+	padding-right: 30px;
+}
+
+.menu__link:hover{
+	color: orange;
+}
+
+.button-link{
+	background-color: orange;
+	color: white;
+	padding: 15px 10px;
+	border-radius: 10px;
+	text-decoration: none;
+	transition-duration: 0.5s;
+	font-weight: bold;
+	
+}
+.button-link:hover{
+	background-color: darkorange;
+}
+
+.header__content-inner{
+	display: flex;
+	height: inherit;
+}
+
+.header__image{
+	height: 800px;
+	width: 750px;
+	padding-top: 50px;
+}
+
+
+.header__text{
+	align-self: center;
+}
+
+.header__content{
+	background-color: #f5f5f5;
+	height: 800px;
+}
+
+.section-block1{
+	background-color: #fbfbfb;
+	height: 700px;
+	align-items: center;
+}
+
+.section__illustration{
+	align-self: flex-end;
+}
+
+.section-block2{
+	background-color: #f5f5f5;
+	height: 700px;
+}
+
+.section-block3{
+	background-color: #fbfbfb;
+	height: 1100px;
+}
+
+.section__inner{
+	height: inherit;
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+}
+
+
+.footer{
+	background-color: #383838;
+	opacity: 80%;
+	color: white;
+	height: 100px;
+	display: flex;
+	align-items: center;
+}
+
+.section-block11{
+	background-color: #fbfbfb;
+	height: 600px;
+	align-items: center;
+}
+
+.section-block12{
+	background-color: #f5f5f5;
+	height: 700px;
+}
+
+.section-block13{
+	background-color: #fbfbfb;
+	height: 836px;
+}
+
+.section-block14{
+	background-color: #f5f5f5;
+	height: 1355px;
+}
+
+.friends-image{
+	height: 844px;
+	width: 1600px;
+}
+
+.group{
+	display: flex;
+	flex-direction: row;
+}
+
+.group__item{
+	text-align: center;
+}
+
+.section__inner-vertical{
+	height: inherit;
+	display: flex;
+	flex-direction:column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.lessons-group{
+	display: flex;
+	flex-direction: row;
+}
+
+.lessons-group__item{
+	background-color: white;
+	margin: 20px 10px;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+.header-illustration__phone{
+	margin-top: 200px;
+	height: 300px;
+	width: 400px;
+}
+
+
