@@ -1,0 +1,421 @@
+/*--------------------------------------Подключение шрифта--------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+/*---------------------------------------Обнуление----------------------------------------------------------------------------*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0; }
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+:focus, :active {
+  outline: none; }
+
+a:focus, a:active {
+  outline: none; }
+
+nav, footer, header, aside {
+  display: block; }
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+input, button, textarea {
+  font-family: inherit; }
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer; }
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+a, a:visited {
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none; }
+
+ul li {
+  list-style: none; }
+
+img {
+  vertical-align: top; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: inherit;
+  font-weight: inherit; }
+ /*---------------------------------------------------------------------------------------------------------------------------------*/ 
+
+ html {
+   zoom: 70%;
+ }
+
+ .wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/*-------------------------------------------------Шапка страницы---------------------------------------------------------------------*/
+.header{
+  position: relative;
+  width: 100%;
+
+}
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1319px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.section{
+  flex: 1 1 auto;
+}
+
+/*--------------------------------------------------Содержание страницы Список курсов---------------------------------------------------------------*/
+
+.course {
+  max-width: 1320px;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+}
+
+.course__title{
+  font-family: Roboto Condensed ;
+  color: rgba(31, 73, 107, 1);
+  font-size: 72px;
+  margin-bottom: 78px;
+  margin-left: 56px;
+}
+
+.course__container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1319px;
+  margin-top: auto;
+  margin-left: 56px;
+  margin-right: 56px;
+  margin-bottom: auto;
+}
+
+
+.item__info {
+  display: flex;
+  width: 550px;
+  height: 280px;
+  border: solid 1px;
+  border-radius: 20px;
+  background-color: #F28218;
+  margin-bottom: 60px;
+}
+
+
+.item__info:hover{
+box-shadow:0px 14px 28px rgba(0,0,0,0.25);
+}
+
+.item__info:nth-child(odd) {
+  margin-right: 60px;
+}
+
+
+
+
+
+
+.item__info_inactive {
+  width: 550px;
+  height: 280px;
+  border: solid 1px;
+  border-radius: 28.96px;
+  background-color:rgba(229, 229, 229, 1);
+
+}
+
+.course__icon {
+  width: 130px;
+  height: 130px;
+  margin: 78px 0px 96px 42px;
+  /* margin: 87px 368px 87px 44px; */
+}
+
+.course__info {
+  padding: 70px 0px 0px 0px;
+}
+
+
+.course__name {
+  display: inline-block;
+  height: 80px;
+  width: 400px;
+  font-family: Roboto Condensed ;
+  font-style: normal;
+  font-weight: normal;
+  color: rgba(31, 73, 107, 1);
+  font-size: 36px;
+  text-align: center;
+  line-height: 42px;
+  margin: 0px 0px 18px 0px;
+
+}
+
+
+
+.course__date {
+  font-size: 30px;
+  text-align: center;
+  font-family: Roboto Condensed ;
+  color: rgba(31, 73, 107, 1);
+  
+}
+
+
+@media (max-width: 1272px) {
+  .item {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .item:nth-child(odd) {
+    margin-right: 0px !important; 
+  }
+}
+
+
+/*---------------------------------------Содержание страницы Карточка курса----------------------------------------------------------------------------*/
+.section-card{
+  height: 600px;
+  width: 100%;
+  background-image: url('../img/background.png');
+  /*background-position: 0 0;*/
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+
+.section-card__container {
+  max-width: 1319px;
+  height: 600px;
+  /*margin: 0px 422px 0px 140px;*/
+  margin-left: auto;
+  margin-right: auto;
+  padding: 91px 0px 75px 0px;
+}
+
+.section-card__info {
+  height: 327px;
+  width: 879px;
+  padding: 30px 0px 70px 0px;
+  margin-left: 56px;
+}
+
+.section-card__name{
+  font-family: Roboto Condensed ;
+  color: rgba(255, 255, 255, 1);
+  font-size: 72px;
+
+}
+
+.section-card__item{
+  font-family: Roboto Condensed ;
+  color: rgba(255, 255, 255, 1);
+  font-size: 40px;
+  padding: 15px 0px 0px 0px;
+  align-items: center;
+}
+
+.container__botton {
+  text-align: center;
+  width: 300px;
+  height: 90px;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 30px 50px;
+  margin-left: 56px;
+}
+
+span{
+  font-family: Roboto Condensed ;
+  color: rgba(31, 73, 107, 1);
+  font-size: 24px;
+}
+
+.section-card__description{
+  width: 100%;
+  height: 516px;
+}
+
+.section-card__title{
+  font-family: Roboto Condensed ;
+  color: rgba(31, 73, 107, 1);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: bold;
+  margin-left: 56px;
+}
+
+.card-info__item{
+  font-family: Roboto Condensed ;
+  color: rgba(31, 73, 107, 1);
+  font-style: normal;
+  font-weight: normal;
+  line-height: 42px;
+  font-size: 36px;
+  align-items: center;
+  padding: 5px;
+}
+
+
+
+
+
+
+@media (max-width: 675px) {
+    .section-card__name {
+        font-size: 54px;
+    }
+
+    .section-card__item {
+      font-size: 25px;
+    }
+
+    .section-card__info {
+      height: 200px;
+      padding: 15px 0px 35px 0px;
+    }
+
+    .container__botton {
+      width: 200px;
+      height: 60px;
+      padding: 20px 35px;
+    }
+
+    .container__botton span {
+      font-size: 16px;
+    }
+
+    .section-card {
+      height: 400px;
+    }
+
+    .section-card__title {
+      font-size: 32px;
+    }
+
+    .card-info__item {
+      font-size: 24px;
+    }
+}
+/*---------------------------------------Содержание страницы Главная---------------------------------------------------------------------*/
+
+
+.section__box {
+  background-color: rgba(31, 73, 107, 1);
+  width: 100%;
+  height: 350px;
+  background-size: 100% 100%;
+}
+
+.section__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 25px 0 0 0;
+}
+
+.section__img{
+  background-image: url('../img/Ellipse.png');
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+}
+
+.section__text {
+  font-family: Roboto Condensed ;
+  color: rgba(255, 255, 255, 1);
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  padding: 0px 0px 10px 0px;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.section__button {
+  display: flex;
+  align-items: center;
+  width: 330px;
+  height: 70px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin: 10px 0px 0px 0px;
+  padding: 0px 0px 0px 50px;
+}
+
+.section__button:hover{
+  box-shadow:0px 14px 28px rgba(0,0,0,0.25);
+  }
+
+.text__button {
+
+  font-family: Roboto Condensed;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 18px;
+}
+
+@media (max-width: 768px) {
+  .section__img {
+    display: none;
+  }
+
+  .section__wrapper {
+    padding: 75 px 0 0 0;
+  }
+}
+
+
+/*-----------------------------------------------------------------FOOTER-------------------------------------------------------------------------------*/
+
+.footer {
+  height: 48px;
+  background: rgba(31, 73, 107, 1); 
+}
+
+.footer__text{
+  max-width: 1319px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 12px;
+  text-align: center;
+  align-items: center;
+  font-family: Roboto Condensed ;
+  font-size: 24px;
+  color: white;
+}
