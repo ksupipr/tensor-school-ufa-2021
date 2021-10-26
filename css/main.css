@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700;800&display=swap');
+@keyframes slide{
+    from {
+        bottom:60px;
+    }
+
+    to {
+        bottom:20px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header{
+    top: 0;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 120px;
+    background-image: url(../images/header-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#header-cont{
+    margin-top: 44px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    height: 75px;
+    width: 1576px;
+    border-bottom: 2px solid #fff;
+}
+
+#logo-button{
+    margin: 0px 10px 0px 30px;
+    padding: 10px;
+    background: 0;
+    border: 0;
+    float: left;
+    color: #fff;
+    font-size: 26px;
+    font-weight: 300;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+#tensor-word{
+    color: #FF7337;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+}
+
+.nav-button{
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: #fff;
+    margin:5px 40px 0px 40px;
+    padding: 10px;
+    background: 0;
+    border: 0;
+    float: right;
+    font-size: 20px;
+    line-height: 29px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+}
+
+select.nav-button{
+    margin-right:30px;
+}
+
+.nav-button:hover{
+    border-bottom: 3px solid #FF7337;
+}
+
+body {
+    top: 0px;
+    margin-top: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url(../images/grad.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #222; 
+    background-attachment: fixed;
+    color:#FFF;
+    height: auto;
+}
+
+#join-button-fixed{
+    position: fixed;
+    border-radius: 100%;
+    padding:10px;
+    background: none;
+    border-style: none;
+    right: 15px;
+    bottom:60px;
+    transition: linear 4s;
+}
+
+#join-button-fixed:hover {
+    -webkit-transform: rotateZ(20deg);
+    -ms-transform: rotateZ(20deg);
+    transform: rotateZ(360deg);
+
+    animation-duration: 3s;
+    animation-name: slide;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+}
+
+section{
+    margin:165px auto 0px auto;
+    padding: 20px;
+    padding-right: 0px;
+    width: 1500px;
+    height: 800px;
+    z-index: 0;
+    position: relative;
+}
+
+#what-after{
+    height: 500px;
+}
+
+#course-plan{
+    height: 500px;
+}
+
+#team-pic{
+    position: absolute;
+    top: 90px;
+    width: 974.59px;
+    height: 605.35px;
+    right:0;
+
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 90px;
+    line-height: 110%;
+    /* or 110px */
+    letter-spacing: 0.05em;
+    float: left;
+    margin-left: 20px;
+}
+
+h2{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 130%;
+    letter-spacing: 0.05em;
+}
+
+.simple-text-1b{
+    position: absolute;
+    width: 430px;
+    top: 330px;
+
+    /* text */
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+}
+
+.simple-text-2b{
+    position: absolute;
+    width: 975px;
+    top: 0;
+    left: 545px;
+    right: 0px;
+    top: 20px;
+    /* text */
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+}
+
+.h1-2b-2l{
+    position: absolute;
+    width: 1050px;
+    height: 220px;
+    left: 0px;
+    top: 200px; /*-------*/
+
+}
+
+.h1-2b-1l{
+    position: absolute;
+    top: 0;
+    width: 1050px;
+    height: 100px;
+    left: 0px;
+}
+
+.h1-1b-2l{
+    margin-right: 75px;
+    position: absolute;
+    top: 0;
+    width: 450px;
+    left: 0px;
+}
+
+.h3-1b{
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 20px;
+    width: 450px;
+    height: 96px;
+    left: 0px;
+    top: 412px;
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 130%;
+    /* or 39px */
+
+    letter-spacing: 0.05em;
+
+}
+
+.info-cont-1b{
+    top: 250px;
+    position: relative;
+    width: 450px;
+    height: 430px;
+    left: 0px;
+    top: 240px;
+    float: left;
+}
+
+#calendar-pic, #teacher-pic{
+    margin-left: 75px;
+}
+
+.h2-1b-2l{
+    position: absolute;
+    width: 450px;
+    height: 110px;
+    left: 0px;
+    top: 200px;
+}
+
+.course-name{
+
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-size: 46px;
+    line-height: 130%;
+    letter-spacing: 0.02em;
+}
+
+.course-number{
+
+    margin-bottom: 30px;
+    margin-right: 40px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 130%;
+}
+
+.course-block{
+    position: relative;
+    width: 975px;
+    height: 80px;
+    right: 0px;
+    left: 525px;
+
+    border-bottom: 1px solid #fff;
+}
+
+.course-block:not(:first-of-type){
+    padding-top: 25px ;
+}
+
+.arrow{
+    position: absolute;
+    right: 0px;
+    bottom: 36px;
+}
+
+#join{
+    height: 700px;
+}
+
+#code-bg{
+    position: absolute;
+    margin-left: 110px;
+}
+
+.form{
+    position: absolute;
+    right: 0;
+    width: 450px;
+    height: 330px;
+    left: 1070px;
+    top: 20px;
+    color: #fff;
+}
+
+input{
+    height: 50px;
+    width: 450px;
+    background: none;
+    color: #fff;
+    border-style: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 130%;
+    
+    letter-spacing: 0.02em;
+}
+
+#phone-form, #mail-form{
+    padding-top: 10px; color: #fff;
+}
+
+.join-button{
+    width: 240px;
+    height: 60px;
+    margin: 80px 0px;
+
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background: none;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight:500;
+    font-size: 20px;
+    line-height: 17px;
+    color: #fff;
+}
+
+.join-button:hover{
+    color: #273571;
+    background: #FFC75A;
+    border: 0px;
+    transition: background .40s linear;
+}
+
+footer{
+    width: 100%;
+    height: 300px;
+    margin-right: 0px;
+    background: #191F39;
+}
+
+.footer-cont{
+    margin:0px auto 0px auto;
+    width: 1500px;
+    height: 300px;
+    top:100px;
+}
+
+#footer-left-cont{
+    position: relative;
+    padding-left: 10px;
+    width: 450px;
+    left: 0px;
+    top: 90px;
+    float: left;
+}
+
+#footer-center-cont{
+    margin-left: 75px;
+    position: relative;
+    width: 450px;
+    left: 0px;
+    top: 90px;
+    float: left;
+}
+
+#footer-right-cont{
+    margin-left: 75px;
+    position: relative;
+    width: 440px;
+    left: 0px;
+    top: 90px;
+    float: left;
+}
+
+.footer-text{
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 130%;
+    color: #4E62BC;
+    text-decoration: none;
+}
+
+.footer-text:hover{
+    color: #8494db;
+}
+
+.footer-icon{
+    width: 28px;
+    height: 28px;
+    margin-right: 15px;
+}
