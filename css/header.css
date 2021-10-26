@@ -1,0 +1,112 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* HEADER */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 15px 1%;
+}
+
+/* HEADER-LEFT */
+
+.header-left {
+  display: flex;
+}
+
+.link-main {
+  margin-right: 20px;
+}
+
+.link-main__img {
+  width: 60px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.menu-panel {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.menu-panel__link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.menu-panel__link:hover {
+  text-decoration: underline;
+}
+
+.menu-panel__partition {
+  height: 20px;
+  width: 0;
+  border-left: 2px solid #073356;
+}
+
+.menu__back {
+  font-weight: bold;
+  color: #073356;
+}
+
+.menu__back:hover {
+  text-decoration: none;
+}
+
+/* HEADER-RIGTH */
+
+.sign-up-btn {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #073356;
+}
+
+.sign-up-btn:hover {
+  color: #FFFFFF;
+}
+
+.sign-up-btn__block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 40px;
+  width: 200px;
+  border: 4px solid #073356;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.sign-up-btn__block:hover {
+  background-color: #073356;
+}
+
+/* HEADLINE */
+
+.headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #235379;
+  min-height: 70px;
+}
+
+.headline__h {
+  color: #FFFFFF;
+  font-size: 36px;
+  padding-left: 1%;
+}

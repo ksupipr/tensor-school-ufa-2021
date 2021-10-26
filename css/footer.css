@@ -1,0 +1,54 @@
+
+/* FOOTER */
+
+footer {
+  display: block;
+  height: 200px;
+  background: #073356;
+  padding: 25px;
+}
+
+.footer__sn-rigths {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* SOCIAL-NETWORKS */
+
+.social-networks {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sn-link {
+  margin-left: 23px;
+}
+
+.sn-link__img {
+  width: 40px;
+  height: 40px;
+}
+
+/* RIGTHS */
+
+.rights {
+  display: flex;
+  justify-content: flex-end;
+  float: right;
+
+  right: 40px;
+  bottom: 40px;
+}
+
+.rigths__text {
+  color: #FFFFFF;
+  opacity: 0.6;
+}
+
+.rigths_logo {
+  width: 31px;
+  height: 27px;
+  margin-right: 12px;
+}
