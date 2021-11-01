@@ -38,7 +38,7 @@
 									<a class = "menu__link" href="https://tensor.ru">Расписание</a>
 								</li>
 								<li class ="menu__item">
-									<a class = "button-link" href="https://tensor.ru">Записаться</a>
+									<a class = "button-link" href="#" id="popup__open">Записаться</a>
 								</li>
 							</ul>
 						</div>
@@ -137,7 +137,22 @@
 			</div>
 		</footer> 
 
+		<div class="popup" id="popup">
+			<div class="popup__container">
+				<div class="popup__body" id="popup__body">
+					<div class="popup__title">Запишись тут!</div>
+					<form action="">
+						<input type=text" placeholder="имя">
+						<input type="text" placeholder="телефон">
+						<button>Записаться!</button>
+					</form>
+					<div class="popup__close"><a href="" id="popup__close">&#10006</a></div>
+				</div>
+			</div>	
+		</div>
 
+
+	<script src="jspopup.js"></script>
 	</body>
 
 
