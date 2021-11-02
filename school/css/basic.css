@@ -35,6 +35,9 @@ ul {
     line-height: 1.75rem;
     padding: 36px 72px;
     border-radius: 20px;
+    text-decoration: none;
+    box-sizing: border-box;
+    display: flex;
 }
 
 .btn-primary {
@@ -45,6 +48,12 @@ ul {
 .btn-primary:hover {
     background-color: var(--orange-darkened);
 }
+
+.btn-secondary {
+    background-color: var(--blue-secondary);
+    color: var(--white);
+}
+
 .arrows{
     display: flex;
 }
