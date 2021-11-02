@@ -92,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
   flex: 1 1 auto;
 }
 
-/*--------------------------------------------------Содержание страницы Список курсов---------------------------------------------------------------*/
+/*--------------------------------------------------Содержание страницы Список курсов(list.html)---------------------------------------------------------------*/
 
 .course {
   max-width: 1320px;
@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.item__info {
+.item__content {
   display: flex;
   width: 550px;
   height: 280px;
@@ -133,11 +133,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-.item__info:hover{
+.item__content:hover{
 box-shadow:0px 14px 28px rgba(0,0,0,0.25);
 }
 
-.item__info:nth-child(odd) {
+.item__content:nth-child(odd) {
   margin-right: 60px;
 }
 
@@ -146,7 +146,7 @@ box-shadow:0px 14px 28px rgba(0,0,0,0.25);
 
 
 
-.item__info_inactive {
+.item__content_inactive {
   width: 550px;
   height: 280px;
   border: solid 1px;
@@ -155,19 +155,19 @@ box-shadow:0px 14px 28px rgba(0,0,0,0.25);
 
 }
 
-.course__icon {
+.item__icon {
   width: 130px;
   height: 130px;
   margin: 78px 0px 96px 42px;
   /* margin: 87px 368px 87px 44px; */
 }
 
-.course__info {
+.item__info {
   padding: 70px 0px 0px 0px;
 }
 
 
-.course__name {
+.item__name {
   display: inline-block;
   height: 80px;
   width: 400px;
@@ -184,7 +184,7 @@ box-shadow:0px 14px 28px rgba(0,0,0,0.25);
 
 
 
-.course__date {
+.item__date {
   font-size: 30px;
   text-align: center;
   font-family: Roboto Condensed ;
@@ -205,7 +205,7 @@ box-shadow:0px 14px 28px rgba(0,0,0,0.25);
 }
 
 
-/*---------------------------------------Содержание страницы Карточка курса----------------------------------------------------------------------------*/
+/*---------------------------------------Содержание страницы Карточка курса(card.html)----------------------------------------------------------------------------*/
 .section-card{
   height: 600px;
   width: 100%;
@@ -329,7 +329,7 @@ span{
       font-size: 24px;
     }
 }
-/*---------------------------------------Содержание страницы Главная---------------------------------------------------------------------*/
+/*---------------------------------------Содержание страницы Главная(index.html)---------------------------------------------------------------------*/
 
 
 .section__box {
@@ -382,12 +382,68 @@ span{
   }
 
 .text__button {
-
   font-family: Roboto Condensed;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 18px;
+}
+
+.section__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 42px 0;
+}
+
+.description__img {
+display: flex;
+height: auto;
+width: 134px;
+align-items: center;
+justify-content: center;
+margin: 0 auto;
+}
+
+
+.description__title {
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 80px auto 0 auto;
+font-family: Roboto Condensed ;
+color: rgba(31, 73, 107, 1);
+line-height: 84px;
+font-size: 72px;
+}
+
+.description__row {
+display: flex;
+
+}
+
+.description__name {
+font-family: Roboto Condensed;
+color: rgba(31, 73, 107, 1);
+font-style: normal;
+font-weight: normal;
+font-size: 34px;
+line-height: 42px;
+text-align: center;
+}
+
+.description__text {
+font-family: Roboto Condensed ;
+color: rgba(31, 73, 107, 1);
+font-size: 24px;
+text-align: center;
+}
+
+.description__column {
+width: 375px;
+padding: 0 40px 0 0;
 }
 
 @media (max-width: 768px) {
@@ -398,7 +454,19 @@ span{
   .section__wrapper {
     padding: 75 px 0 0 0;
   }
+
+  .description__row {
+    flex-direction: column;
+    align-content: center;
+  }
+
+  .description__column {
+    width: 375px;
+    padding: 0 0 40px 0;
+    }
+
 }
+
 
 
 /*-----------------------------------------------------------------FOOTER-------------------------------------------------------------------------------*/
