@@ -39,8 +39,9 @@ body {
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
-    width:10em;
+    width:max-content;
     height: 50px;
+    padding: 2%;
     font-style: normal;
     font-weight: normal;
     text-decoration: none;
@@ -49,6 +50,7 @@ body {
     align-items: center;
     color: #FFFFFF;
     justify-content: center;
+    white-space: nowrap;
     transition: color .1s linear;
     transition: background .1s linear;
 }
@@ -72,7 +74,7 @@ body {
     margin-right: auto;
 }
 .info__header{
-    height: 100px;
+    height:min-content;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -103,9 +105,10 @@ body {
 /* Speakers */
 .speakers{
     width: 100%;
+    margin-bottom: 5%;
 }
 .speakers__header{
-    height: 100px;
+    height: 5%;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -186,4 +189,102 @@ body {
     border-left: 4px solid rgba(255, 255, 255, 0.7);
     transform: rotate(-135deg);
     margin-right: 10%;
+}
+/* popup */
+.popup{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.801);
+    width: 100%;
+    height:150%;
+    top: 0px;
+    left: 0px;
+    align-items: center;
+}
+.popup__container{
+    margin: auto auto;
+    background: #24446A;
+    width: max-content;
+    margin-top: 20%;
+    height:min-content;
+    border-radius: 20px;
+    padding: 2%;
+    position: relative;
+    border: 10px solid rgba(240, 125, 7, 0.7);
+}
+.popup__close{
+    position: absolute;
+    right: -2%;
+    top: -2%;
+    border-radius: 20px;
+    width: 20px;
+    height: 20px;
+    background-color: blanchedalmond;
+    text-align: center;
+    color: coral;
+    font-weight: 700;
+}
+/* recording */
+.recording__item{
+    
+    margin-bottom: 4%;
+    
+}
+.recording__itemheader{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin-bottom: 1%;
+
+}
+.recording__iteminput{
+    border-radius: 20px;
+    background-color: whitesmoke;
+    padding-left: 2%;
+    width: 70%;
+    color: #5c5c5c;
+    height: min-content;
+    padding: 1% 2%;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+
+}
+.recording__btn {
+    background: rgba(240, 125, 7, 0.7);
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: #FFFFFF;
+    justify-content: center;
+    transition: color .1s linear;
+    width:min-content;
+    height:min-content;
+    white-space: nowrap;
+    font-size: 20px;
+    margin: auto;
+    padding: 1%;
+    margin-bottom: 4%;
+}
+
+.recording__btn:hover{
+    color: #335783; 
+    background: rgba(255, 255, 255, 0.7);
+}
+.recording__footer{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 28px;
+    color: #FFFFFF;
 }
