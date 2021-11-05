@@ -28,30 +28,36 @@ let modalCourseButton = document.querySelectorAll(".course__button");
 modalCourseButton.forEach(item => {
     item.addEventListener("click", (event) => {
         event.preventDefault();
+        document.body.classList.toggle("no-scroll");
         modal2.style.display = "block";
     });
 });
 modalBtn.addEventListener("click", openModal);
 modalBtn2.addEventListener("click", openModal);
 modalCloseBtn.forEach(item => {
+
     item.addEventListener("click", closeModal);
 });
 window.addEventListener("click", (event) => {
     switch (event.target) {
         case modal:
             modal.style.display = "none";
+            document.body.classList.toggle("no-scroll");
             break;
         case modal2:
             modal2.style.display = "none";
+            document.body.classList.toggle("no-scroll");
             break;
     }
 });
 function openModal(event) {
     event.preventDefault();
+    document.body.classList.toggle("no-scroll");
     modal.style.display = 'block';
 }
 function closeModal(event) {
     event.preventDefault();
+    document.body.classList.toggle("no-scroll");
     modal.style.display = 'none';
     modal2.style.display = 'none';
 

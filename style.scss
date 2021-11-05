@@ -556,7 +556,10 @@ main {
         margin-right: 20px;
     }
 }
-
+.no-scroll {
+    // height: 100vh;
+    overflow-y: hidden;
+}
 //Modal window
 .modal {
     display: none;
