@@ -16,14 +16,16 @@
 
 	<body>
 
+	<script type="module" src="frontend.js"></script>
 
+	<div class="global-wrapper" id="app">
 		<header class="header">
 			<div class="header__top">
 				<div class="container">
 					<div class="header__nav">
 						<div class="logo">
 							<a class="logo__link" href="#">
-								<img src="img/Group 1289.svg" alt="Логотип" class="logo__image">
+								<img src="../img/Group1289.svg" alt="Логотип" class="logo__image">
 							</a>
 						</div>
 						<div class="menu">
@@ -54,7 +56,7 @@
 							<p class="header__suptitle">Мы - крупная федеральная IT-компания, разработчик <br>СБИС – экосистемы цифровых сервисов. И мы <br>предлагаем тебе учиться с нами!</p>
 						</div>
 						<div class="header__illustration">
-							<img src="img/Group 1288.png" alt="Boy" class="header__image">
+							<img src="../img/Group1288.png" alt="Boy" class="header__image">
 						</div>
 					</div>
 				</div>
@@ -79,7 +81,7 @@
 						</div>
 					</div>
 					<div class="section__illustration">
-						<img src="img/Group 1075.png" alt="Cup" class="section__image">
+						<img src="../img/Group%201075.png" alt="Cup" class="section__image">
 					</div>
 				</div>
 			</div>
@@ -120,7 +122,7 @@
 						</div>
 					</div>
 					<div class="section__illustration">
-						<img src="img/Group 490.png" alt="girl" class="section__image">
+						<img src="../img/Group%20490.png" alt="girl" class="section__image">
 					</div>
 				</div>
 			</div>
@@ -142,17 +144,18 @@
 				<div class="popup__body" id="popup__body">
 					<div class="popup__title">Запишись тут!</div>
 					<form action="">
-						<input type=text" placeholder="имя">
-						<input type="text" placeholder="телефон">
+						<input type="text" placeholder="имя" id="name" v-model="form.name">
+						<input type="text" placeholder="телефон" id="value" v-model="form.value">
 						<button>Записаться!</button>
 					</form>
 					<div class="popup__close"><a href="" id="popup__close">&#10006</a></div>
 				</div>
 			</div>	
 		</div>
-
+	</div>
 
 	<script src="jspopup.js"></script>
+
 	</body>
 
 
