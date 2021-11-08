@@ -357,6 +357,7 @@ input{
     font-size: 20px;
     line-height: 17px;
     color: #fff;
+    cursor: pointer;
 }
 
 .join-button:hover{
@@ -424,3 +425,50 @@ footer{
     height: 28px;
     margin-right: 15px;
 }
+
+.hidden {
+    overflow: hidden;
+}
+
+.modal {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+    top: -1000px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-y: scroll;
+    padding: 60px 15px;
+}
+       
+.modal_active {
+    position: fixed;
+    top: 0;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: .3s;
+    transition: .3s;
+}    
+   
+.modal__content {
+    margin: 240px 0px;
+    position: relative;
+    padding: 20px;
+    width: 1500px;
+    height: 100%;
+    z-index: 0;
+}
+
+#modal__close-button{
+    margin-left: 30px;
+    margin-top: 150px;
+    cursor: pointer;
+}
+   
