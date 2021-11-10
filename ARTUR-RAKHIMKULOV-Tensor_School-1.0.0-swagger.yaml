@@ -25,6 +25,8 @@ tags:
 paths:
   /index:
     get:
+      tags: 
+        - students
       summary: Просмотр новостей и списка курсов
       description: Получает список актуальных новостей Школы и список курсов
       operationId: NewsAndLessons
@@ -36,60 +38,116 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LessonItem'
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/NewsItem'
-  /lessons:
+                  $ref: '#/components/schemas/NewsandLessons'
+  /course:
     get:
       tags: 
         - students
-      summary: просмотр и поиск курсов
-      description: Получает список доступных курсов для записи, поддерживает поиск.
-      operationId: searchLessons
+      summary: просмотр курсa
+      description: Получает данные о курсе.
+      operationId: course
       parameters: 
         - in: query
-          name: searchString
-          description: Опциональный параметр для поиска курсов
-          required: false
+          name: Courseid
+          description: Параметр для подгрузки данных о курсе
           schema:
             type: string
-        - in: query
-          name: offset
-          description: количество записей которыйе нужно пропустить, необходимо для навигации
-          schema:
-            type: integer
-        - in: query
-          name: limit
-          description: максимальное количество записей в ответе
-          required: false
-          schema:
-            type: integer
-            format: int32
-            minimum: 0
-            maximum: 50
       responses:
         '200':
-          description: Выдает список курсов по заданным критериям
+          description: Выдает Данные о курсе
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/LessonItem'
+                  $ref: '#/components/schemas/Lesson'
         '400':
           description: Некорректные входные параметры
 components:
   schemas:
+    Lesson:
+      type: object
+      required:
+        - id
+        - title
+        - text
+        - teachers
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        title:
+          type: string
+          example: название курса
+        text:
+          type: string
+          example: текст курса
+        teachers:
+          type: array
+          items: 
+            $ref: '#/components/schemas/TeacherItem'
+    TeacherItem:
+      type: object
+      required:
+        - id
+        - Name
+        - text
+        - img
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: Имя
+        text:
+          type: string
+          example: Кратко о учителе
+        img:
+          type: string 
+          example: не знаю как реализовать
+    NewsItem:
+      type: object
+      required:
+        - id
+        - title
+        - text
+        - img
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        title:
+          type: string
+          example: название курса
+        text:
+          type: string
+          example: название курса
+        img:
+          type: string 
+          example: не знаю как реализовать
+    NewsandLessons:
+      type: object
+      required:
+        - lessons
+        - news
+      properties:
+        news:
+          type: array
+          items: 
+            $ref: '#/components/schemas/NewsItem'
+        lessons:
+          type: array
+          items: 
+            $ref: '#/components/schemas/LessonItem'
     LessonItem:
       type: object
       required:
         - id
         - name
-        - author
-        - releaseDate
       properties:
         id:
           type: string
@@ -98,27 +156,3 @@ components:
         name:
           type: string
           example: название курса
-        releaseDate:
-          type: string
-          format: date-time
-          example: '2021-08-29T09:12:33.001Z'
-        author:
-          $ref: '#/components/schemas/Author'
-    Author:
-      type: object
-      required:
-        - authorname
-        - homepage
-        - phone
-      properties:
-        authorname:
-          type: string
-          example: Artur
-        homepage:
-          type: string
-          format: url
-          example: 'tensor.ru'
-        phone:
-          type: string
-          format: phone
-          example: '8996-402-17-45'
