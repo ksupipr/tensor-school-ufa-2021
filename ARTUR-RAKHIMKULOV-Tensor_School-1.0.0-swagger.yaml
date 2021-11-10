@@ -1,0 +1,124 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: 'API для работы с курсами'
+  description: 'Работа с курсами. Позваляет отобразить список курсов, создавать, редактировать и удалять курсы'
+  contact:
+    name: Рахимкулов Артур
+    email: q3032002@gmail.com
+    url: tensor.ru
+  license:
+    name: Apache 2.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ARTUR-RAKHIMKULOV/Tensor_School/1.0.0
+  - url: https://beta.mycoolsite.com/api/
+    description: тестовый сервер нашего сайта
+  - url: https://mycoolsite.com/api/
+    description: боевой сервер нашего сайта
+tags: 
+  - name: teachers
+    description: teachers
+  - name: students
+    description: students
+paths:
+  /index:
+    get:
+      summary: Просмотр новостей и списка курсов
+      description: Получает список актуальных новостей Школы и список курсов
+      operationId: NewsAndLessons
+      responses:
+        '200':
+          description: Выдает Актуальные новости и курсы на главной странице
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LessonItem'
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsItem'
+  /lessons:
+    get:
+      tags: 
+        - students
+      summary: просмотр и поиск курсов
+      description: Получает список доступных курсов для записи, поддерживает поиск.
+      operationId: searchLessons
+      parameters: 
+        - in: query
+          name: searchString
+          description: Опциональный параметр для поиска курсов
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: offset
+          description: количество записей которыйе нужно пропустить, необходимо для навигации
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          description: максимальное количество записей в ответе
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: Выдает список курсов по заданным критериям
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LessonItem'
+        '400':
+          description: Некорректные входные параметры
+components:
+  schemas:
+    LessonItem:
+      type: object
+      required:
+        - id
+        - name
+        - author
+        - releaseDate
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: название курса
+        releaseDate:
+          type: string
+          format: date-time
+          example: '2021-08-29T09:12:33.001Z'
+        author:
+          $ref: '#/components/schemas/Author'
+    Author:
+      type: object
+      required:
+        - authorname
+        - homepage
+        - phone
+      properties:
+        authorname:
+          type: string
+          example: Artur
+        homepage:
+          type: string
+          format: url
+          example: 'tensor.ru'
+        phone:
+          type: string
+          format: phone
+          example: '8996-402-17-45'
