@@ -1,0 +1,143 @@
+openapi: 3.0.0
+info:
+  title: API для работы с курсами
+  description: "Работа с курсами. Позваляет отобразить список курсов, создавать, р\
+    едактировать и удалять курсы"
+  contact:
+    name: Ямалтдинова Аделина
+    url: tensor.ru
+    email: adelinvik@gmail.com
+  license:
+    name: Apache 2.0
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/LisaaSimpson/TensorSchool/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: students
+  description: students
+paths:
+  /lessons:
+    get:
+      tags:
+      - students
+      summary: Просмотр курсов
+      description: Раскрывает полный список курсов
+      operationId: more_lessons
+      responses:
+        "200":
+          description: Выдает полный список курсов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LessonItem'
+                x-content-type: application/json
+        "400":
+          description: Некорректные входные параметры
+      x-openapi-router-controller: swagger_server.controllers.students_controller
+  /lesson:
+    get:
+      tags:
+      - students
+      summary: Описание курса
+      description: Полное описание курса
+      operationId: about_lesson
+      responses:
+        "200":
+          description: Выдает полную информацию о курсе
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LessonDescription'
+                x-content-type: application/json
+        "400":
+          description: Некорректные входные параметры
+      x-openapi-router-controller: swagger_server.controllers.students_controller
+components:
+  schemas:
+    LessonItem:
+      required:
+      - id
+      - long
+      - method
+      - name
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: Название курса
+        long:
+          type: string
+          example: курс 8 недель
+        method:
+          type: string
+          example: вечерние занятия
+      example:
+        method: вечерние занятия
+        name: Название курса
+        id: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        long: курс 8 недель
+    LessonDescription:
+      required:
+      - id
+      - name
+      - teacher
+      - text
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: Название курса
+        text:
+          type: string
+          example: Описание курса
+        teacher:
+          $ref: '#/components/schemas/Teacher'
+      example:
+        teacher:
+          image: фото преподавателя
+          name: Имя преподавателя
+          id: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+          text: Краткая информация о преподавателе
+        name: Название курса
+        id: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        text: Описание курса
+    Teacher:
+      required:
+      - id
+      - image
+      - name
+      - text
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: Имя преподавателя
+        text:
+          type: string
+          example: Краткая информация о преподавателе
+        image:
+          type: object
+          example: фото преподавателя
+      example:
+        image: фото преподавателя
+        name: Имя преподавателя
+        id: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        text: Краткая информация о преподавателе
+
