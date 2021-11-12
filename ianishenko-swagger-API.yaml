@@ -1,0 +1,1191 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Tensor-school_kurs
+  description: "Школа программирования: Tensor-school"
+  termsOfService: "https://smartbear.com/terms-of-use"
+  contact:
+    name: Ilya Anischenko
+    #url: tensor.ru
+    email: mentoz.97@mail.ru
+  license:
+    name: Apace 2.0
+    url: http://www.Apache.org/licenses/LICENSE-2.0.html
+    
+servers:
+ # Added by API Auto Mocking Plugin
+  - url: https://virtserver.swaggerhub.com/ianishenko/Tensor-school/1.0.0
+    description: SwaggerHub API Auto Mocking
+  - url: '{protocol}://{dev}.tensor-school.ru/{version}'
+    description: test site server
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+        description: protocol used
+      dev:
+        enum:
+          - 'dev'
+          - 'test'
+        default: 'dev'
+        description: test bench version
+      version:
+        default: 'v2'
+        description: version API
+ 
+tags:
+  - name: admins
+    description: Действия, доступные только для админов
+  - name: students
+    description: Студенты, имеющие доступ к записи на курсы, чтению курсов, отправки сообщений в чатах
+  - name: teachers
+    description: Учителя, имеющие доступ к выгрузке пользователей,  
+  - name: all users
+    description: Методы доступные для всех пользователей
+ 
+paths:
+  /courses:
+    get:
+      tags: 
+        - all users
+      summary: Просмотр списка курсов
+      description: Раскрывает полный список курсов
+      operationId: more about courses
+      responses:
+        '200':
+          description: Выдает полный список курсов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/courses'
+        '400':
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '500':
+          description: Ошибка на сервере
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error500'
+  
+  /admin/courses:
+    post:
+      summary: Создание нового курса
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: course
+          description: Регистрация нового курса
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Курс создан, id присвоено
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/id'
+        '400':
+          description: Курс уже был создан ранее или введены некорректные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/add_course'
+              
+  /admin/courses/{idCourse}: 
+    put:
+      summary: Изменение существующего курса
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: change of course
+          description: Изменение курса
+          schema:
+            type: string
+        - in: path
+          name: idCourse
+          description: ID курса
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Курс успешно изменен
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put_course_request'
+    delete:
+      summary: Удаление существующего курса
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: deleting a course
+          description: Удаление курса
+          schema:
+            type: string
+        - in: path
+          name: idCourse
+          description: ID курса
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Курс удален
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'         
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+              
+  /lessons:
+    get:
+      tags:
+        - all users
+      summary: Описание выбранного курса
+      description: Выдает список уроков по курсу
+      operationId: aboutcourse
+      responses:
+        '200':
+          description: Выдает полную информацию о курсе
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/lessons'
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '500':
+          description: Ошибка на сервере
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error500'
+          
+  /users/register:
+    post:
+      summary: Регистрация нового пользователя
+      tags: 
+      - all users
+      responses:
+        '200':
+          description: Успешная регистрация 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/successful'
+        '400':
+          description: Ошибка запроса
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '500':
+          description: Ошибка на сервере
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error500'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/register_user'
+              
+  /password/change:
+    put:
+      summary: Cмена пароля
+      tags: 
+        - students
+        - teachers
+        - admins
+      parameters:
+        - in: header
+          name: Change Password
+          description: Смена пароля
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Пароль успешно изменен!
+        '400':
+          description: Некорректные входные данные или пароли не совпадают
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '403':
+          description: Недостаточно прав или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/change_password'
+  
+  /admin/users/teachers/register:
+    post:
+      summary: Регистрация нового преподавателя
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: newteacher
+          description: new teacher ID
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Успешная регистрация преподавателя
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/id'
+        '400':
+          description: Пользователь уже был зарегистирован ранее или введены некорректные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/register_teacher'  
+    
+  /admin/users/teachers/{idteacher}:
+    delete:
+      summary: Удаление преподавателя
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: deleteteacher
+          description: удаление преподавателя
+          schema:
+            type: string
+        - in: path
+          name: idteacher
+          description: ID преподавателя 
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Преподаватель удален
+        '400':
+          description: Введены некорректные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'         
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+    put:
+      summary: Изменение преподавателя
+      tags: 
+      - admins
+      parameters:
+        - in: header
+          name: teacher change
+          description: Изменение преподавателя
+          schema:
+            type: string
+        - in: path
+          name: idteacher
+          description: ID преподавателя
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Преподаватель изменен
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/put_teacher'
+  
+  /admin/users/teachers/all:
+    get:
+      summary: Получение информации о всех преподавателях для админа
+      tags:
+        - admins
+      parameters:
+        - in: header
+          name: getting all the teachers
+          description: Получение информации по преподавателям
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация успешно получена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_all_teachers_info_for_admin'
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'   
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502' 
+                
+  /admin/courses/all:
+    get:
+      summary: Получение информации о всех курсах для админа
+      tags:
+        - admins
+      parameters:
+        - in: header
+          name: getting all the courses
+          description: Получение информации о всех курсам
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Информация успешно получена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_all_courses_info_for_admin'
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'     
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'    
+                
+  /users/all:              
+    get:
+      summary: Получение информации о всех пользователях
+      tags:
+        - admins
+        - teachers
+        - students
+      parameters:
+        - in: header
+          name: getting all users
+          description: Получение информации о пользователях
+          schema:
+            type: string
+        - in: query
+          name: role
+          description: Название роли пользователей, которых надо получить (student, teacher, если не указана - выводятся все зарегистированные пользователи)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Пользователи получены
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_user'
+        '400':
+          description: Некорректные входные данные
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error400'          
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+    
+  /teacher/chat/{idChat}:
+    get:
+      summary: Получение конкретного чата в ЛК учителя
+      tags: 
+        - teachers
+      parameters:
+        - in: header
+          name: getting a chat by the teacher
+          description: Получение чата в ЛК учителя
+          schema:
+            type: string
+        - in: path
+          name: idChat
+          description: id чата
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Чат найден и открыт
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_chat'
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+    post:
+      summary: Отправка сообщения в конкретном чате в ЛК учителя
+      tags: 
+        - teachers
+      parameters:
+        - in: header
+          name: teacher sending a message
+          description: Отправка сообщения учителем
+          schema:
+            type: string
+        - in: path
+          name: idChat
+          description: id чата
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Cообщение успешно отправленно
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post_send_message_request'
+  
+  /teacher/chat/{idChat}/rating:
+   put:
+      summary: Изменение оценки ученика по чату
+      tags: 
+        - teachers
+      parameters:
+        - in: header
+          name: student grade change
+          description: Изменение оценки ученика
+          schema:
+            type: string
+        - in: path
+          name: idChat
+          description: ID чата
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Оценка успешно изменена!
+        '403':
+          description: Недостаточно прав или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'                  
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post_send_rating'    
+              
+  /courses/{idCourse}/sections/{idSection}/lesson/{idLesson}/chat:
+    get:
+      summary: Получение чата на странице урока (если id чата '0' - он не существует до написания в него)
+      tags: 
+        - students
+        - teachers
+        - admins
+      parameters:
+        - in: header
+          name: сhat on the lesson page
+          description: открытие чата на странице урока
+          schema:
+            type: string
+        - in: path
+          name: idCourse
+          description: id курса
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: idSection
+          description: id раздела
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: idLesson
+          description: id урока
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Информация успешно получена
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+    post:
+      summary: Отправка сообщения в чат на странице урока
+      tags: 
+        - students
+        - teachers
+        - admins
+      parameters:
+        - in: header
+          name: sending a message to the chat
+          description: Отправка сообщения в чат
+          schema:
+            type: string
+        - in: path
+          name: idCourse
+          description: id курса
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: idSection
+          description: id раздела
+          schema:
+            type: string
+          required: true
+        - in: path
+          name: idLesson
+          description: id урока
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Сообщение успешно отправлено!
+        '403':
+          description: Недостаточно прав или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post_send_message_request'            
+  
+  /students/chat/{idChat}:
+    get:
+      summary: Получение конкретного чата в ЛК ученика
+      tags: 
+        - students
+      parameters:
+        - in: header
+          name: getting a specific chat
+          description: Получение конкретного чата в ЛК
+          schema:
+            type: string
+        - in: path
+          name: idChat
+          description: id чата
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Чат открыт
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/get_chat'
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+    post:
+      summary: Отправка сообщения в конкретный чат в ЛК ученика
+      tags: 
+        - students
+      parameters:
+        - in: header
+          name: sending a chat message
+          description: Отправка сообщения в чат
+          schema:
+            type: string
+        - in: path
+          name: idChat
+          description: id чата
+          schema:
+            type: string
+          required: true
+      responses:
+        '200':
+          description: Cообщение отправленно
+        '403':
+          description: Недостаточно прав, или неверный токен
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error403'        
+        '502':
+          description: Ошибка на шлюзе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/error502'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/post_send_message_request'
+              
+################################################################################             
+components:
+  schemas:
+    courses:
+      type: object
+      required:
+        - id
+        - name
+        - lasting
+        #- lesson count
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 134hg137f8-612j30-431l7-9213fffd-213kj3h4lca2
+        name:
+          type: string
+          example: Названия курсов
+        lasting:
+          type: string
+          example: курс '56' часов
+          
+    lessons:
+      type: object
+      required:
+        - id
+        - name
+        - lasting
+        - text
+        - teachers
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: 13dhf37f8-612j30-4da7-9213fffd-2238dfhlca2
+        name:
+          type: string
+          example: Название курса
+        lasting:
+          type: string
+          example: курс 56 часов  
+        text:
+          type: string
+          example: Описание курса
+        teachers:
+          $ref: '#/components/schemas/teachers'
+          
+    teachers:
+      type: object
+      required:
+        - id
+        - name
+        - image
+        - text
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: dhf37f8-612j30-4da7-9213fffd-2238dfhlca2
+        name:
+          type: string
+          example: ФИО преподавателя
+        image:
+          type: object
+          example: Фотография преподавателя  
+        text:
+          type: string
+          example: Информация о преподавателе
+        
+    error400:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: 'HTTP 400 Bad Request'
+    
+    error403:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: 'HTTP 403 Forbidden'
+    
+    error500:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: 'HTTP 500 Internal Server Error'
+          
+    error502:
+      type: object
+      required:
+        - error
+      properties:
+        error:
+          type: string
+          example: 'HTTP 502 Bad Gateway'
+
+    register_user:
+      type: object 
+      required: 
+        - name
+        - date
+        - education
+        - course
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          example: Ivanov Ivan Ivanovich
+        date:
+          type: number
+          example: 10.01.1990
+        education:
+          type: string
+          example: Master of science
+        course:
+          type: string
+          example: JavaScript  
+        email:
+          type: string
+          example: IvanovI@mail.ru
+        password:
+          type: string
+          example: QWERTY
+        
+    successful:
+      type: object
+      required: 
+        - response
+      properties:
+        response:
+          type: string
+          example: 'this is genius!'
+          
+    change_password:
+      type: object
+      required: 
+        - old_password
+        - new_password
+        - repeat_password
+      properties:
+        old_password:
+          type: string
+          example: qwerty
+        new_password:
+          type: string
+          example: dv29e0dqkxa29j
+        repeat_password:
+          type: string
+          example: dv29e0dqkxa29j
+          
+    id:
+      type: object
+      required:
+        - id
+      properties:
+        id:
+          type: integer
+          example: 1
+    
+    register_teacher:
+      type: object
+      required:
+        - name
+        - date
+        - education
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          example: Ivanov Ivan Ivanovich
+        date:
+          type: number
+          example: 10.01.1980
+        education:
+          type: string
+          example: Master of science
+        email:
+          type: string
+          example: Ivanov@mail.ru
+        password:
+          type: string
+          example: qwerty
+        
+    put_teacher:
+      type: object
+      required: 
+        - name
+        - date
+        - education
+        - email
+        - password
+      properties:
+        name:
+          type: string
+          example: Ivanov Ivan Ivanovich
+        date:
+          type: number
+          example: 10.01.1980
+        education:
+          type: string
+          example: Master of science
+        email:
+          type: string
+          example: Ivanov@mail.ru
+        password:
+          type: string
+          example: qwerty
+          
+    add_course:
+      type: object
+      required: 
+        - name
+        - cost
+      properties:
+        name:
+          type: string
+          example: Вводный курс по Python
+        cost:
+          type: integer
+          example: 12000
+    
+    put_course_request:
+      type: object
+      required:
+        - name
+        - cost
+        - hours
+      properties:
+        name:
+          type: string
+          example: Вводный курс по JavaScript
+        cost:
+          type: integer
+          example: 10000 
+        hours:
+          type: integer
+          example: 56 
+     
+    get_all_courses_info_for_admin:
+      type: array
+      items:
+        $ref: '#/components/schemas/get_courses_info_for_admin'
+    get_all_teachers_info_for_admin:
+      type: array
+      items:
+        $ref: '#/components/schemas/get_teachers_info_for_admin'
+    
+    get_teachers_info_for_admin:  
+      type: object
+      required:
+        - id
+        - name
+        - education
+        - course
+        - email
+        - average_time    
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Иванов Иван Иванович
+        education:
+          type: string
+          example: Master of science
+        course:
+          type: string
+          example: JavaScript 
+        email:
+          type: string
+          example: Ivanov@mail.ru
+        average_time:
+          type: integer
+          example: 160h
+          
+    get_courses_info_for_admin:  
+      type: object
+      required:
+        - id
+        - name
+        - cost
+        - users
+        - dz
+        - sale
+        - total
+      properties:
+        id:
+          type: integer
+          example: 1
+        name:
+          type: string
+          example: Курс для новичков
+        cost:
+          type: integer
+          example: 15000
+        users:
+          type: integer
+          example: 1
+        dz:
+          type: integer
+          example: 1
+        sale:
+          type: integer
+          example: 1
+        total:
+          type: integer
+          example: 1
+          
+    get_user:
+      type: array
+      items:
+        $ref: '#/components/schemas/user'
+    
+    user:
+      type: object
+      required:
+        - email
+        - first_name
+        - role
+      properties:
+        email:
+          type: string
+          example: IvAnOv@all.domenname
+        first_name:
+          type: string
+          example: Ivan      
+        role:
+          type: string
+          example: student
+    
+    get_chat:
+      type: object
+      required:
+        - course_id
+        - section_id
+        - lesson_id
+        - chat_id
+        - student_id
+        - messages
+      properties:
+        course_id:
+          type: integer
+          example: 1      
+        section_id:
+          type: integer
+          example: 1  
+        level_id:
+          type: integer
+          example: 1   
+        lesson_id:
+          type: integer
+          example: 1
+        chat_id:
+          type: integer
+          example: 1
+          description: Если айди чата 0 - чата не существует
+        student_id:
+          type: integer
+          example: 1
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/mes_for_student'
+    
+    mes_for_student:
+      type: object
+      required:
+        - message_id
+        - text
+        - role
+        - time
+        - name
+      properties:
+        message_id:
+          type: integer
+          example: '1'      
+        text:
+          type: string
+          example: 'Привет' 
+        role:
+          type: string
+          example: 'Student'  
+        time:
+          type: integer
+          example: '2021-01-01T14:32:11'
+        name:
+          type: string
+          example: 'Student Name' 
+    
+    post_send_message_request:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          example: 'Добрый день!...'
+          
+    post_send_rating:
+      type: object
+      required:
+        - rating
+      properties:
+        rating:
+          type: string
+          example: 'good'
