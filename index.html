@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TensorSchool</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="header">
+        <div class="header__container">
+            <div class="header__left">
+                <a href="index.html" class="logo__link">
+                    <img class="logo__img" src="img/logo.jpg" alt="Логотип компании Тензор">
+                    <span class="logo__text">TensorSchool</span>
+                </a>
+            </div>
+            <div class="header__menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">О нас</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="courses.html" class="menu__link">Все курсы</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#" class="menu__link">Блог</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="#contact_page" class="menu__link">Контакт</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="header__right">
+                <img class="header__search-icon" src="img/search.svg" alt="Search icon">
+                <span class="header__right-bar"></span>
+                <a href="#" class="header__authentication-button">Войти</a>
+            </div>
+            <div class="header__hamburger" id="hamburger">
+                <span class="hamburger__bar hamburger__bar1"></span>
+                <span class="hamburger__bar hamburger__bar2"></span>
+                <span class="hamburger__bar hamburger__bar3"></span>
+            </div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <div class="wrapper__content">
+            <div class="wrap">
+                <div class="home-page">
+                    <div class="home-page__text">
+                        <p class="home-page__title">
+                            Запустите свою учебную программу и повышайте свой уровень с <span class="home-page__word">TensorSchool</span>
+                        </p>
+                        <p class="home-page__slogan">
+                            <span class="slogan">Учитесь тому, как учиться.</span>
+                            <span class="slogan">Откройте для себя навыки будущего.</span>
+                            <span class="slogan">И возьмите свою карьеру в свои руки.</span>
+                        </p>
+                        <p><a href="#" class="home-page__button">Начать</a></p>
+                    </div>
+                    <div class="home-page__illustration">
+                        <img class="illustration_img" src="img/Online_learning_illustration.svg" alt="Online Learning Illustration">
+                    </div>
+                </div>
+            </div>
+            <div class="wrap">
+                <div class="courses">
+                    <header>
+                        <p class="courses__title">Популярные курсы</p>
+                    </header>
+                    <div class="courses__menu">
+                        <ul class="courses__category-list">
+                            <li class="courses__list-item courses__list-item_active">Frontend</li>
+                            <li class="courses__list-item">Backend</li>
+                            <li class="courses__list-item">База данных</li>
+                            <li class="courses__list-item">Дизайн</li>
+                        </ul>
+                        <a href="courses.html" class="courses__category-list courses__category-list-button">Все курсы</a>
+                    </div>
+                    <div class="lessons">
+                        <div class="card card__lesson">
+                            <img class="card__img" src="img/html.jpg" alt="Lesson Image">
+                            <div class="card__title" title="Lesson Title">HTML</div>
+                            <div class="card__description" title="Lesson Description">Изучаем основы HTML. Научимся как создавать веб-страницы.</div>
+                            <a href="lesson.html" class="card__link"></a>
+                        </div>
+                        <div class="card card__lesson">
+                            <img class="card__img" src="img/css.jpg" alt="Lesson Image">
+                            <div class="card__title" title="Lesson Title">CSS</div>
+                            <div class="card__description" title="Lesson Description">Изучаем основы CSS. Научимся использовать CSS для оформления веб-страницы</div>
+                            <a href="lesson.html" class="card__link"></a>
+                        </div>
+                        <div class="card card__lesson">
+                            <img class="card__img" src="img/js.jpg" alt="Lesson Image">
+                            <div class="card__title" title="Lesson Title">Javascript</div>
+                            <div class="card__description" title="Lesson Description">Узнаем, как работает JavaScript в браузере. Научимся оживлять интерфейсы.</div>
+                            <a href="lesson.html" class="card__link"></a>
+                        </div>
+                        <div class="card card__lesson">
+                            <img class="card__img" src="img/python.png" alt="Lesson Image">
+                            <div class="card__title" title="Lesson Title">Python</div>
+                            <div class="card__description" title="Lesson Description">Знакомства с языком бакэнда Python. Основы программирования и баз данных</div>
+                            <a href="lesson.html" class="card__link"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="advantages">
+                    <header>
+                        <p class="advantages__title">TensorSchool и Премиущества </p>
+                    </header>
+                    <div class="advantages__description">
+                        TensorSchool является образовательной платформой, предназначенная для предоставления учебных 
+                            пространств и учебных сред для обучения студентов под руководством преподавателей.
+                    </div>
+                    <div class="advantage">
+                        <div class="cards cards__advantage">
+                            <img class="cards__img" src="img/book.png" alt="Lesson Image">
+                            <div class="cards__title" title="Lesson Title">Качественное образование</div>
+                        </div>
+                        <div class="cards cards__advantage">
+                            <img class="cards__img" src="img/group.png" alt="Lesson Image">
+                            <div class="cards__title" title="Lesson Title">Совместное обучение и коммуникация</div>
+                        </div>
+                        <div class="cards cards__advantage">
+                            <img class="cards__img" src="img/certificate.png" alt="Lesson Image">
+                            <div class="cards__title" title="Lesson Title">Получение диплома</div>
+                        </div>
+                    </div>
+                    <div class="advantages__rounded">
+                        <p class="advantages__rounded-information">В TensorSchool вы познакомитесь с миром дизайна,
+                            разработкой интерфейсов и бэкендов</p>
+                        <a href="#" class="advantages__rounded-link">Начать</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wrap">
+                <div class="teachers">
+                    <header>
+                        <p class="teacher__big-title">Учитесь у <span class="teacher__word">лучших инструкторов</span></p>
+                        <a href="#" class="teacher__list-link">Все инструкторы</a>
+                    </header>
+                    <div class="teacher">
+                        <div class="card__teacher">
+                            <img class="teacher__img" src="img/avatar1.jpg" alt="Lesson Image">
+                            <div class="teacher__title" title="Lesson Title">Кузьмина Виктория</div>
+                            <div class="teacher__description" title="Lesson Description">
+                                <p>Ведущий проектировщик пользовательских интерфейсов</p>
+                                <p>Инструктор по дизайну (UX и UI)</p>
+                            </div>
+                        </div>
+                        <div class="card__teacher">
+                            <img class="teacher__img" src="img/avatar2.png" alt="Lesson Image">
+                            <div class="teacher__title" title="Lesson Title">Березина Екатерина</div>
+                            <div class="teacher__description" title="Lesson Description">
+                                <p>Senior Frontend Developer</p>
+                                <p>Инструктор фронтэнд (HTML и CSS)</p>
+                            </div>
+                        </div>
+                        <div class="card__teacher">
+                            <img class="teacher__img" src="img/avatar3.png" alt="Lesson Image">
+                            <div class="teacher__title" title="Lesson Title">Воробьева Александра</div>
+                            <div class="teacher__description" title="Lesson Description">
+                                <p>Python-программист Инструктор бакэнд (Python)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="wrap" id="contact_page">
+                <div class="footer">
+                    <div class="footer__header">
+                        <div class="footer__left">
+                            <a href="#" class="logo__link">
+                                <img class="logo__img" src="img/logo.jpg" alt="Логотип компании Тензор">
+                                <span class="logo__text">TensorSchool</span>
+                            </a>
+                        </div>
+                        <div class="footer__form">
+                            <div class="form__title">Контакт</div>
+                            <form action="">
+                                <div class="row">
+                                    <input type="text" placeholder="Ф.И.О">
+                                </div>
+                                <div class="row">
+                                    <input type="text" placeholder="Email">
+                                </div>
+                                <div class="row">
+                                    <textarea placeholder="Сообщение..." style="height:150px"></textarea>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Отправить">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer__body">
+                        <div class="footer__copyright">
+                            <p>Copyright © TensorSchool, 2021</p>
+                        </div>
+                        <div class="footer__social-networks-link">
+                            <ul>
+                                <li><a href="#"><img src="img/vk.png" alt="VK"></a></li>
+                                <li><a href="#"><img src="img/facebook-f-brands.svg" alt="Facebook"></a></li>
+                                <li><a href="#"><img src="img/twitter-brands.svg" alt="Twitter"></a></li>
+                                <li><a href="#"><img src="img/instagram-square-brands.svg" alt="Instagram"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Popups form (Login - Sign Up) -->
+        <div class="modal">
+            <div class="modal__content model__content_animate">
+                <div class="modal__close-button">+</div>
+                <div class="modal__left">
+                    <div class="modal__left-logo">
+                        <a href="index.html" class="logo__link">
+                            <img class="logo__img" src="img/logo.jpg" alt="Логотип компании Тензор">
+                            <span class="logo__text">TensorSchool</span>
+                        </a>
+                    </div>
+                    <div class="modal__left-center">
+                        <div class="modal__left-bar"></div>
+                        <div class="modal__left-text">
+                            <span class="modal__text">Начать ваше</span>
+                            <span class="modal__text">обучение с</span>
+                            <span class="modal__text">TensorSchool</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal__right">
+                    <div class="modal__login-signup">
+                        <nav class="login-signup__navbar">
+                            <ul class="login-signup__list">
+                                <li class="login-signup__item login-signup__item_active"><a href="#" class="login-signup__link">Войти</a></li>
+                                <li class="login-signup__item"><a href="#" class="login-signup__link">Регистрация</a></li>
+                            </ul>
+                        </nav>
+                        <div class="login-signup__form">
+                            <!-- Login form -->
+                            <form action="" class="login__form">
+                                <div class="form__container">
+                                    <div class="form__row">
+                                        <label for="username"><b>Логин</b></label>
+                                        <input type="text" placeholder="Enter Username" name="username" required>
+                                    </div>
+                              
+                                    <div class="form__row">
+                                        <label for="password"><b>Пароль</b></label>
+                                        <input type="password" placeholder="Enter Password" name="passeword" required>
+                                    </div>
+                                    
+                                    <div class="form__row">
+                                        <button type="submit">Вход</button>
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="remember"> Запомни меня
+                                        </label>
+                                    </div>
+                                  </div>
+                                  <div class="form__footer-container">
+                                        <div class="password">Или <a href="#">Забыли пароль?</a></div>
+                                  </div>
+                            </form>
+
+                            <!-- Registration form -->
+                            <form action="" class="signup__form form__deactivated">
+                                <div class="form__container">
+                                    <div class="form__row">
+                                        <label for="username"><b>Ф.И.О</b></label>
+                                        <input type="text" placeholder="Ф.И.О" name="username" required>
+                                    </div>
+                            
+                                    <div class="form__row">
+                                        <label for="email"><b>Email</b></label>
+                                        <input type="email" placeholder="Email" name="email" required>
+                                    </div>
+                                    
+                                    <div class="form__row">
+                                        <label for="pseudo"><b>Pseudo</b></label>
+                                        <input type="text" placeholder="Pseudo" name="pseudo" required>
+                                    </div>
+
+                                    <div class="form__row">
+                                        <label for="password"><b>Пароль</b></label>
+                                        <input type="password" placeholder="Enter Password" name="passeword" required>
+                                    </div>
+
+                                    <div class="form__row">
+                                        <label>
+                                            <input type="checkbox" checked="checked" name="remember"> Создавая учетную запись, я соглашаюсь с политикой конфиденциальности.
+                                        </label>
+                                        <button type="submit">Зарегистрироваться</button>
+                                    </div>
+                                  </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
