@@ -18,6 +18,7 @@ export default class Component {
      * подписываемся на кнопки в элементе
      */
     afterMount(arrayBtns) {
+        // сделать одной подпиской на родителя
         for (const btnItem of arrayBtns) {
             let btn = document.querySelector(btnItem.targetBtn);
             this.setSubscribeFunction(btnItem.subscribeFunctionName, btnItem.subscribeFunctionBind);
