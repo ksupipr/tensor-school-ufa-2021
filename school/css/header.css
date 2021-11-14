@@ -23,10 +23,6 @@
     z-index: 1;
 }
 
-.header__menu {
-
-}
-
 .menu__list{
     display: flex;
     list-style-type: none;

@@ -3,11 +3,7 @@ body {
     font-size: 14px;
 }
 
-p {
-    margin: 0;
-}
-
-ul {
+p, ul {
     margin: 0;
 }
 

@@ -1,6 +1,3 @@
-.main {
-}
-
 .main__slider {
     height: 600px;
     overflow: hidden;
@@ -16,9 +13,6 @@
     padding-top: 160px;
     display: flex;
     justify-content: space-between;
-}
-
-.slideItem__left {
 }
 
 .slideItem__text {

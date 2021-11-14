@@ -5,6 +5,27 @@ export default class Component {
     _subscribeFunctions = {};
 
     /**
+     * рендер элемента
+     * @returns верстку
+     */
+    render(tagName, className, place, layout) {
+        const element = this.createClassElement(tagName, className);
+        element.insertAdjacentHTML(place, layout);
+        return element;
+    }
+
+    /**
+     * подписываемся на кнопки в элементе
+     */
+    afterMount(arrayBtns) {
+        for (const btnItem of arrayBtns) {
+            let btn = document.querySelector(btnItem.targetBtn);
+            this.setSubscribeFunction(btnItem.subscribeFunctionName, btnItem.subscribeFunctionBind);
+            this.subscibe(btn, btnItem.eventName, this.getSubscribeFunction(btnItem.subscribeFunctionName));
+        }
+    }
+
+    /**
      * запонинает функцию, которой подписались на событие
      * @param {String} functionName ключ сохранения функции
      * @param {Function} functionBody сама функция
