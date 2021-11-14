@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>TENSOR School</title>
+    <link rel="stylesheet" href="css/main.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <div id="header-cont">
+            <button id="logo-button" title="Back to top">
+                <span id="tensor-word">TENSOR</span>.school
+            </button>
+            <select name="ВСЕ КУРСЫ" class="nav-button">
+                <option selected disabled>ВСЕ КУРСЫ</option>
+                <option>BACKEND разработка</option>
+                <option>Тестирование</option>
+                <option>Проектирование</option>
+            </select>
+            <button class="nav-button">ПЛАН КУРСА</button>
+            <button class="nav-button">О ШКОЛЕ</button>
+        </div>
+    </header>
+
+    <button id="join-button-fixed" ><img src="./images/join-button-fixed.png"></button>
+
+    <section id="welcome-section">
+
+        <h1 class="h1-2b-2l">FRONTEND разработка</h1>
+        <h3 class="h3-1b">Настощие разработчики учат разработке</h2>
+        <img src="./images/team.png" title="Наша мощная команда!" id="team-pic">
+
+    </section>
+
+    <section id="about-school-section">
+        <h1 class="h1-2b-1l">Кто, где и сколько?</h1>
+
+        <div class="info-cont-1b" id="money-pic">
+            <img src="./images/money-icon.svg" title="For free!" >
+            <h2 class="h2-1b-2l">Обучение беслпатное</h2>
+            <p class="simple-text-1b">Мы любим воспитывать новые кадры, поэтому не беспокойтесь о деньгах, все за наш счет</p>
+        </div>
+
+        <div class="info-cont-1b" id="calendar-pic">
+            <img src="./images/calendar-icon.svg" title="8 weeks!" >
+            <h2 class="h2-1b-2l">Учимся 8 недель. Обучение очное</h2>
+            <p class="simple-text-1b">Занятия проходят у нас в офисе. 2 раза в неделю, вечером</p>
+        </div>
+
+        <div class="info-cont-1b" id="teacher-pic">
+            <img src="./images/teacher-icon.svg" title="Experienced specialist!" >
+            <h2 class="h2-1b-2l">Преподаватели на опыте</h2>
+            <p class="simple-text-1b">Все преподаватели - это senior разработчики компании Тензор. Научат вас самым актуальным методам разработки</p>
+        </div> 
+    </section>
+
+    <section id="course-plan">
+        <h1 class="h1-1b-2l">Чему научим?</h1>
+
+        <div class="course-block">
+            <span class="course-number">1</span>
+            <span class="course-name">UI/UX Design</span>
+            <img src="./images/arrow.svg" class="arrow">
+        </div>
+        <div class="course-block">
+            <span class="course-number">2</span>
+            <span class="course-name">Frontend</span>
+            <img src="./images/arrow.svg" class="arrow">
+        </div>
+        <div class="course-block">
+            <span class="course-number">3</span>
+            <span class="course-name">Backend</span>
+            <img src="./images/arrow.svg" class="arrow">
+        </div>
+        <div class="course-block">
+            <span class="course-number">4</span>
+            <span class="course-name">Командный проект</span>
+            <img src="./images/arrow.svg" class="arrow">
+        </div>
+    </section>
+    
+    <section id="what-after">
+        <h1 class="h1-1b-2l">А что после?</h1>
+        <p class="simple-text-2b">По ходу обучения вы увидите что под капотом у одной из самых больших IT компаний России. 
+            Познакомитесь с нашей командой и убедитесь, что у нас круто! <br><br>
+            Нам очень нравится учить студентов и давать опыт реальной WEB-разработки. 
+            После окончания обучения мы приглашаем самых упорных студентов к нам в команду. 
+            Продолжим развивать навыки на масштабных проектах!
+        </p>
+    </section>
+
+    <section id="join">
+        <h1 class="h1-2b-1l">Присоединяйся!</h1>
+        <img src="./images/code-bg.svg" id="code-bg">
+        <div class="form">
+            <input type="text" name="name" placeholder="Имя" id="name-form">
+            <input type="text" name="phone" placeholder="Номер телефона" id="phone-form">
+            <input type="text" name="mail" placeholder="E-mail" id="mail-form">
+            <button class="join-button" >ЗАПИСАТЬСЯ</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-cont">
+
+            <div id="footer-left-cont">
+                <a href="http://tensor.ru" class="footer-text">tensor.ru</a><br><br>
+                <!--icons here-->
+                <a href="http://facebook.com" class="footer-icon"><img src="./images/facebook.svg"></a>
+                <a href="http://youtube.com" class="footer-icon"><img src="./images/youtube.svg"></a>
+                <a href="http://whatsapp.com" class="footer-icon"><img src="./images/whatsapp.svg"></a>
+            </div>
+
+            <div id="footer-center-cont">
+                <a href="http://tensor.ru" class="footer-text">Новости</a><br><br>
+                <a href="http://tensor.ru" class="footer-text">Информация для студентов</a><br><br>
+                <a href="http://tensor.ru" class="footer-text">Правовая информация</a>
+            </div>
+                
+            <div id="footer-right-cont">
+                <a href="http://tensor.ru" name="mail" class="footer-text">education@tensor.ru</a><br><br>
+                <a href="http://tensor.ru" name="phone" class="footer-text">8 (800) 001 02 03</a>
+            </div>
+
+        </div>
+    </footer>
+
+    <div class="modal" id="modal-1">
+        <div class="modal__content">
+          <button class="modal__close-button"><img src="./img/close.svg" width="12" alt=""></button>
+          <!-- Контент модального окна -->
+          <h1 class="modal__title">Контент для примера</h1>
+          <p class="modal__description">Статья с уроком - <a
+              href="https://smartlanding.biz/kak-sdelat-modalnoe-okno-na-sajte.html">тут</a>.</p>
+        </div>
+      </div>
+        <!-- Модальное окно
+    <div class="modal" id="modal-1">
+        <div class="modal__content">
+            <h1>Отлично! Ожидайте сообщения от нас</h1>
+            <button class="join-button" id="modal__close-button">Хорошо</button>
+        </div>
+    </div> -->
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
