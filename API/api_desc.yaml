@@ -1,0 +1,440 @@
+openapi: 3.0.0
+info:
+  description: |
+    Работа с данными связана с платформы обучения Tensorschool (Добавить, считать, модифицировать, удалить данные курсов, студентов и инструкторов)
+  version: "1.0.0"
+  title: API Tensorscool для работы с курсами
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: abouba.sang@mail.ru
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: https://virtserver.swaggerhub.com/sangtech/tensorschool/1.0.0
+    description: Сервер для тестовых запросов
+  - url: 'https://www.prodapi.io/v2'
+    description: Сервер для тестовых запросов
+tags:
+  - name: student
+    description: Студенты, доступен функционал записи на курсы и их прохождение
+  - name: teacher
+    description: Преподаватели, доступен функционал управленями курсами
+  - name: lesson
+    description: Функционалы управления курсов (CRUD)
+  - name: category
+paths:
+  /lessons:
+    get:
+      tags: 
+        - lesson
+      summary: список кусов или результат просмотра и поиска 
+      description: получает список доступных курсов для записи и подерживает поиск
+      operationId: searchLessons
+      parameters: 
+        - in: query
+          name: searchString
+          description: опциональный параметр для поиска курсов
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: offset
+          description: Количество результат по страничке
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+        - in: query
+          name: limit
+          description: максимальное количество записей в результате поиска
+          required: false
+          schema:
+            type: integer
+            format: int32
+            minimum: 0
+            maximum: 50
+      responses:
+        '200':
+          description: выдает список курсов
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Lesson"
+        '400':
+          description: входные данные не корректные
+        '404':
+          description: неуспешная операция
+  '/lesson/{lessonId}':
+    get:
+      tags: 
+        - lesson
+      summary: найти курс по ID 
+      description: получает только 1 курс
+      operationId: getLessonById
+      parameters: 
+        - name: lessonId
+          in: path
+          description: возвращает один курс
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден
+    post:
+      tags: 
+        - lesson
+      summary: добавить новый курс 
+      operationId: setLessonById
+      parameters: 
+        - name: lessonId
+          in: path
+          description: ID нового курса
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден
+      
+    put:
+      tags:
+        - lesson
+      summary: обновление курс по ID
+      operationId: updateLessonById
+      parameters: 
+        - name: lessonId
+          in: path
+          description: ID курса
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '405':
+          description: неверные данные введены
+    delete:
+      tags:
+        - lesson
+      summary: удалить курс по ID
+      operationId: deleteLessonById
+      parameters:
+        - name: api_key
+          in: header
+          required: false
+          schema:
+            type: string
+        - name: lessonId
+          in: path
+          description: ID курса
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешая операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден
+        '405':
+          description: неверные данные введены
+  '/lesson/{lessonId}/students':
+    get:
+      tags: 
+        - lesson
+      summary: список студентов по курсу по ID 
+      description: получает только 1 курс
+      operationId: getListStudentbyLessonId
+      parameters: 
+        - name: lessonId
+          in: path
+          description: возвращает список студентов по определенному курсу
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден
+  '/student/login':
+    get:
+      tags:
+        - student
+      summary: Автоматизация студент в систему
+      operationId: loginStudent
+      parameters:
+        - name: username (pseudo)
+          in: query
+          description: логин студента для авторизации
+          required: true
+          schema:
+            type: string
+        - name: password
+          in: query
+          description: Пароль для авторизации в чистном тексте
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: успешая операция
+          headers:
+            X-Rate-Limit:
+              description: количество вызова по часу позволено студентом
+              schema:
+                type: integer
+                format: int32
+            X-Expires-After:
+              description: дата в UTC когда токен истекается
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/json:
+              schema:
+                type: string
+            application/xml:
+              schema:
+                type: string
+        '400':
+          description: Неверное имя пользователя/пароль
+  '/student/logout':
+    get:
+      tags:
+        - student
+      summary: Завершает текущий сеанс студента, вошедшего в систему
+      operationId: logoutStudent
+      responses:
+        default:
+          description: успешная операция
+  '/student/{studentId}/lessons':
+    get:
+      tags:
+        - student
+      summary: список курсов опреленного студента по ID
+      description: Это может сделать только вошедший в систему.
+      operationId: getLessonsbyStydentID
+      parameters: 
+        - name: studentID
+          in: path
+          description: возвращает список курсов студента по ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден
+  '/teacher/{teacherId}/lessons':
+    get:
+      tags:
+        - teacher
+      summary: список курсов опреленного преподавателя по ID
+      description: Это может сделать только вошедший в систему.
+      operationId: getLessonsbyTeacherID
+      parameters: 
+        - name: teacherID
+          in: path
+          description: возвращает список курсов преподвателя по ID
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: курс не найден  
+  /categories:
+    get:
+      tags: 
+        - category
+      summary: выдает список категории курсов 
+      description: получает список доступных курсов для записи и подерживает поиск
+      operationId: getCategories
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Category'
+        '404':
+          description: неуспешная операция
+  '/category/{categoryId}/lessons':
+    get:
+      tags: 
+        - category
+      summary: выдает список всех курсов по категории ID 
+      description: получает список доступных курсов для записи и подерживает поиск
+      operationId: getLessonByCategoryId
+      responses:
+        '200':
+          description: успешная операция
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        '400':
+          description: предоставленный неверный идентификатор
+        '404':
+          description: неуспешная операция
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        description:
+          type: string
+        lessons:
+          type: array
+          items:
+            $ref: '#/components/schemas/Lesson'
+    Lesson:
+      type: object
+      properties:
+        lesson_id:
+          type: integer
+          format: int64
+        teacher_id:
+          type: integer
+          format: int32
+        lesson_title:
+          type: string
+        lesson_description:
+          type: string
+        image:
+          type: string
+        lesson_about:
+          type: string
+        lesson_program:
+          type: string
+        lesson_objectives:
+          type: string
+    Student:
+      type: object
+      properties:
+        student_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        login_name (pseudo):
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+    Teacher:
+      type: object
+      properties:
+        teacher_id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        address:
+          type: string
+          
