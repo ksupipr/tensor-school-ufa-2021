@@ -1,0 +1,42 @@
+main {
+  background-image: url("../img/card-back.png");
+  background-size: cover;
+  min-height: 400px;
+  width: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.lesson-window {
+  min-height: 460px;
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #073356;
+  opacity: 0.6;
+  border-radius: 50px;
+  color: #FFFFFF;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.lesson-page {
+  font-size: 16px;
+}
+
+.lesson-page__h {
+  font-size: 36px;
+  text-align: center;
+}
+
+.lesson-page__homework {
+  font-size: 24px;
+}
+
+.lesson-window_info {
+  font-size: 14px;
+  text-align: right;
+}
