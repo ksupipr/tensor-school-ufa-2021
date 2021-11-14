@@ -1,0 +1,158 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: 'API для работы с курсами'
+  description: 'Работа с курсами. Позваляет отобразить список курсов, создавать, редактировать и удалять курсы'
+  contact:
+    name: Рахимкулов Артур
+    email: q3032002@gmail.com
+    url: tensor.ru
+  license:
+    name: Apache 2.0
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ARTUR-RAKHIMKULOV/Tensor_School/1.0.0
+  - url: https://beta.mycoolsite.com/api/
+    description: тестовый сервер нашего сайта
+  - url: https://mycoolsite.com/api/
+    description: боевой сервер нашего сайта
+tags: 
+  - name: teachers
+    description: teachers
+  - name: students
+    description: students
+paths:
+  /index:
+    get:
+      tags: 
+        - students
+      summary: Просмотр новостей и списка курсов
+      description: Получает список актуальных новостей Школы и список курсов
+      operationId: NewsAndLessons
+      responses:
+        '200':
+          description: Выдает Актуальные новости и курсы на главной странице
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NewsandLessons'
+  /course:
+    get:
+      tags: 
+        - students
+      summary: просмотр курсa
+      description: Получает данные о курсе.
+      operationId: course
+      parameters: 
+        - in: query
+          name: Courseid
+          description: Параметр для подгрузки данных о курсе
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Выдает Данные о курсе
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+        '400':
+          description: Некорректные входные параметры
+components:
+  schemas:
+    Lesson:
+      type: object
+      required:
+        - id
+        - title
+        - text
+        - teachers
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        title:
+          type: string
+          example: название курса
+        text:
+          type: string
+          example: текст курса
+        teachers:
+          type: array
+          items: 
+            $ref: '#/components/schemas/TeacherItem'
+    TeacherItem:
+      type: object
+      required:
+        - id
+        - Name
+        - text
+        - img
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: Имя
+        text:
+          type: string
+          example: Кратко о учителе
+        img:
+          type: string 
+          example: не знаю как реализовать
+    NewsItem:
+      type: object
+      required:
+        - id
+        - title
+        - text
+        - img
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        title:
+          type: string
+          example: название курса
+        text:
+          type: string
+          example: название курса
+        img:
+          type: string 
+          example: не знаю как реализовать
+    NewsandLessons:
+      type: object
+      required:
+        - lessons
+        - news
+      properties:
+        news:
+          type: array
+          items: 
+            $ref: '#/components/schemas/NewsItem'
+        lessons:
+          type: array
+          items: 
+            $ref: '#/components/schemas/LessonItem'
+    LessonItem:
+      type: object
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: ef7137f8-68c0-4107-9ddd-80fd392b7ca2
+        name:
+          type: string
+          example: название курса
