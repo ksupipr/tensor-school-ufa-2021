@@ -1,0 +1,277 @@
+/* Modal form */
+.modal, .application__model {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+}
+.modal__close-button, .application-modal__close-button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 28px;
+    transform: rotate(45deg);
+    padding: 2px;
+    cursor: pointer;
+}
+.modal__close-button:hover, .modal__close-button:focus,
+.application-modal__close-button:hover, .application-modal__close-button:focus {
+    color: red;
+}
+.modal__content, .application__content {
+    width: 90%;
+    height: 90%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.application__content {
+    height: 98%;
+}
+.model__content_animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+.modal__left {
+    width: 50%;
+    height: 100.1%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #04456a;
+    /* background-color: #6e6e6e; */
+    border-radius: 10px 0 0 10px;
+    clip-path: polygon(0 0, 85% 0%, 100% 100%, 0 100%);
+    /* clip-path: polygon(0 0, 100% 0%, 85% 100%, 0 100%); */
+}
+.modal__left .modal__left-logo {
+    margin: 10px;
+}
+.modal__left .modal__left-logo .logo__link {
+    display: flex;
+    align-items: center;
+}
+.modal__left .modal__left-logo .logo__text{
+    color: #d1d1d1;
+    margin-left: 5px;
+}
+.modal__left .modal__left-logo .logo__img {
+    width: 50px;
+    height: 50px;
+}
+.modal__left-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.modal__left-bar, .modal__left-text {
+    height: 40%;
+}
+.modal__left-bar {
+    width: 20%;
+    clip-path: polygon(60% 0, 75% 0, 100% 100%, 85% 100%);
+    background-color: #ee7e22;
+}
+.modal__left-text {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.modal__text {
+    display: block;
+    font-size: 50px;
+    color: #d1d1d1;
+    text-align: left;
+    padding: 5px 10px;
+}
+.modal__right {
+    width: 50%;
+    display: flex;
+    border-radius: 10px 10px 0 0;
+    padding: 20px;
+}
+.modal__login-signup {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+}
+.login-signup__navbar {
+    text-align: left;
+}
+.login-signup__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    position: relative;
+}
+.login-signup__list::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+    content: "";
+}
+.login-signup__item {
+    display: inline-block;
+    padding: 10px 20px 10px 20px;
+    cursor: pointer;
+    position: relative;
+}
+.login-signup__item:hover {
+    background-color: #e4e4e4;
+}
+.login-signup__item::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #FFFFFF;
+    content: "";
+    z-index: 3;
+}
+.login-signup__link {
+    text-decoration: none;
+    font-size: 20px;
+    color: #000000;
+}
+.login-signup__item_active {
+    background-color: #FFFFFF;
+}
+.login-signup__item:hover::after, .login-signup__item_active::after{
+    background-color: #000000;
+    z-index: 5;
+}
+.login-signup__form {
+    width: 100%;
+}
+.form__container input[type=text],
+.form__container input[type=password],
+.form__container input[type=email],
+.form__container input[type=tel],
+.form__container .application__selected,
+.form__container textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 0;
+    font-size: 14px;
+    background-color: #FFFFFF;
+}
+.form__container input[type=text]:focus, .form__container input[type=password]:focus {
+    border-color: #242424;
+}
+.form__container .form__row {
+    margin: 10px 0;
+}
+.form__container .form__row label b {
+    font-size: 14px;
+}
+.form__container input[type=checkbox] {
+    margin: 10px 0 10px 0;
+}
+.form__container button {
+    background-color: #04456a;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 17px;
+}
+.form__container button:hover {
+    opacity: 0.7;
+}
+.form__footer-container {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.form__footer-container button {
+    font-size: 17px;
+    background-color: #9b3a29;
+    color: white;
+    padding: 10px 10px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+}
+.form__footer-container .password {
+    font-size: 17px;
+}
+.form__footer-container .password a {
+    text-decoration: none;
+    color: #2935a7;
+}
+.form__footer-container .password a:hover {
+    text-decoration: underline;
+}
+.form__deactivated {
+    display: none;
+}
+
+/* Application form */
+.application__form {
+    width: 55%;
+}
+.application__content {
+    width: 90%;
+    height: 90%;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.application_title, .application__text {
+    text-align: center;
+}
+.application__img {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.application__image {
+    max-width: 40px;
+    width: 100%;
+    height: auto;
+}
+.application__form .form__row {
+    margin: 0;
+}
+.application__form .form__row input,
+.application__form .form__row select,
+.application__form .form__row textarea {
+    padding: 12px 10px;
+    margin: 5px 0;
+}

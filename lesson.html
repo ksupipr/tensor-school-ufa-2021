@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TensorSchool</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/lesson.css">
+    <link rel="stylesheet" href="css/modals.css">
+    <link rel="stylesheet" href="css/media_query.css" media="(max-width: 980px)">
 </head>
 <body>
     <!-- Navigation bar -->
@@ -17,7 +20,7 @@
                     <span class="logo__text">TensorSchool</span>
                 </a>
             </div>
-            <div class="header__menu">
+            <div class="header__menu header__hamburger_inactive">
                 <ul class="menu__list">
                     <li class="menu__item">
                         <a href="https://tensor.ru/" class="menu__link" target="_blank">О нас</a>
@@ -33,7 +36,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="header__right">
+            <div class="header__right header__hamburger_inactive">
                 <img class="header__search-icon" src="img/search.svg" alt="Search icon">
                 <span class="header__right-bar"></span>
                 <a href="#" class="header__authentication-button">Войти</a>
@@ -65,8 +68,16 @@
                         <div class="lesson__claim">
                             <h3 class="lesson__duration-title">Требования</h3>
                             <p>
-                                Изучите предшествующие курсы
+                                Изучите предшествующие курсы или имееть предварительное требование.
+                                <a class="lesson__claim-list" href="">Смотрите подробное</a>
                             </p>
+                            <div class="lesson__exigences">
+                                <ul>
+                                    <li><a href="a">Первый урок</a></li>
+                                    <li><a href="a">Второй урок</a></li>
+                                    <li><a href="a">Третый урок</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                     <div class="lesson__enroll">
@@ -79,28 +90,91 @@
             </div>
 
             <div class="lesson__description">
-                <div class="advantages">
-                    <header>
-                        <p class="advantages__title">На уроке Вы изучите</p>
-                    </header>
-                    <div class="advantages__description">
+                <div class="lesson__description-links">
+                    <a class="lesson__description-link" href="#lesson__about">About</a>
+                    <a class="lesson__description-link" href="#lesson__learning">What you'll learn</a>
+                    <a class="lesson__description-link" href="#lesson__programs">Programs</a>
+                    <a class="lesson__description-link" href="#lesson__instructor">Instructor</a>
+                </div>
+
+                <div class="lesson__about" id="lesson__about">
+                    <h1 class="lesson_part-title">Об этом уроке</h1>
+                    <p>
+                        Начните изучение Python для бэкенд-разработки, а также программирования в целом 
+                        с этого курса "Введение в Python". Этот курс для начинающих на Python быстро 
+                        проведет вас от нуля до программирования на Python за считанные часы и даст 
+                        вам представление о том, как начать работать с данными на Python.
+                    </p>
+                    <p>    
+                        После его завершения вы сможете писать свои собственные сценарии на Python и
+                         выполнять базовый практический анализ данных, используя нашу лабораторную среду 
+                         на базе Jupyter. Если вы хотите изучать Python с нуля, этот курс для вас.
+                    </p>
+                </div>
+                <div class="lesson__learning" id="lesson__learning">
+                    <h1 class="lesson_part-title">Что вы будете изучить</h1>
+                    <div class="lesson__learning_detailled">
+                        <p>
                         Цели этого курса - начать работу с Python как языком программирования и дать вам представление о том, как начать работать с данными в Python.
                         В этом курсе вы узнаете о:
-                        Что такое Python и почему он полезен.
-                        Применение Python в науке о данных
-                        Как определять переменные в Python
-                        Наборы и условные операторы в Python
-                        Назначение функций в Python
-                        Как работать с файлами для чтения и записи данных в Python
-                        Как использовать pandas, обязательный пакет для всех, кто пытается анализировать данные на Python.
+                        <ul>
+                            <li>Что такое Python и почему он полезен.</li> 
+                            <li>Применение Python в науке о данных</li> 
+                            <li>Как определять переменные в Python</li> 
+                            <li>Наборы и условные операторы в Python</li> 
+                            <li>Назначение функций в Python</li> 
+                            <li>Как работать с файлами для чтения и записи данных в Python</li> 
+                            <li>Как использовать pandas, обязательный пакет для всех, кто пытается анализировать данные на Python.</li> 
+                        </ul>
+                        </p>
                     </div>
-                    <div class="advantage">
-                        ... <hr>
-                        ... <hr>
-                        ... <hr>
-                        ... <hr>
-                        ...
-                        ...
+                </div>
+                <div class="lesson__programs" id="lesson__programs">
+                    <h1 class="lesson_part-title">Программа урока</h1>
+                    <div class="lesson__programs-module">
+                        <p>
+                            <strong>Модуль 1 - Основы Python</strong>
+                            <br>
+                            Ваша первая программа
+                            <br>
+                            Типы
+                            <br>
+                            Выражения и переменные
+                            <br>
+                            Строковые операции
+                        </p>
+                        <p>
+                            <strong>Модуль 2 - Структуры данных Python</strong>
+                            <br>
+                            Ваша первая программа
+                            <br>
+                            Типы
+                            <br>
+                            Выражения и переменные
+                            <br>
+                            Строковые операции
+                        </p>
+                        <p>
+                            <strong>Модуль 3 - Работа с серверами в Python</strong>
+                            <br>
+                            Ваша первая программа
+                            <br>
+                            Типы
+                            <br>
+                            Выражения и переменные
+                            <br>
+                            Строковые операции
+                        </p>
+                    </div>
+                </div>
+                <div class="lesson__instructor" id="lesson__instructor">
+                    <h1 class="lesson_part-title">Преподаватель</h1>
+                    <div class="lesson__instructor-details">
+                        <img class="lesson__instructor__img" src="img/avatar3.png" alt="Фото Преподавателя">
+                        <div class="lesson__instructor-informations">
+                            <h4>Воробьева Александра</h4>
+                            <p><span>Python-программист</span><span>Инструктор бакэнд (Python)</span></p>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,408 @@
+
+/*------------------------ Media Queries----------------------*/
+/* Узкие экраны (ноутбуки/настольные компьютеры, 992px и ниже) */
+@media only screen and (max-width: 980px) {
+    .header__hamburger {
+        display: flex;
+        width: 40px;
+        height: 30px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-around;
+        border-radius: 3px;
+        padding: 2px;
+    }
+    .hamburger__bar {
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        background-color: #000000;
+        transition: all 0.5s ease-out;
+    }
+    .hamburger__bar-toggle .hamburger__bar1 {
+        transform: scale(0.9) rotateZ(-45deg) translate(-6px, 4px);
+    }
+    .hamburger__bar-toggle .hamburger__bar2 {
+        display: none;
+    }
+    .hamburger__bar-toggle .hamburger__bar3 {
+        transform: scale(0.9) rotateZ(45deg) translate(-6px, -4px);
+    }
+    .header__hamburger_active {
+        display: flex;
+    }
+    .header__hamburger_inactive {
+        display: none;
+    }
+    .header__menu{
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        height: 175px;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 5px #000000;
+        z-index: 3;
+    }
+    .header__right {
+        position: absolute;
+        top: 255px;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        background-color: #FFFFFF;
+        box-shadow: 0 2px 5px #000000;
+        z-index: 3;
+        border-top: 1px solid #000000;
+        border-bottom: 1px solid #000000;
+        justify-content: space-around;
+    }
+    .header__right-bar {
+        width: 2px;
+        height: 75%;
+        background-color: #000000b6;
+    }
+    .header__authentication-button {
+        margin: 0 0 0 -35px;
+    }
+    .header__authentication-button::before {
+        display: none;
+        margin: 0;
+    }
+    .menu__list {
+        margin: 0 auto;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    .menu__link {
+        text-align: center;
+        margin: 0;
+    }
+    .menu__item {
+        margin: 2px 0 0 0;
+        padding: 0;
+        border-bottom: 2px solid #242424;
+    }
+    .card__lesson {
+        min-width: 200px;
+    }
+    .card__img {
+        height: 200px;
+    }
+    .home-page__title {
+        font-size: 30px;
+    }
+    .slogan {
+        font-size: 22px;
+    }
+    .lessons {
+        flex-wrap: wrap;
+    }
+    .home-page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .home-page__text {        
+        width: 100%;
+        max-width: 600px;
+        padding: 15px;
+        margin: 0 auto;
+    }
+    .home-page__illustration {
+        padding: 30px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    .home-page__title {
+        margin: 0;
+    }
+    .slogan {
+        font-size: 18px;
+    }
+    .home-page__button {
+        font-size: 22px;
+        padding: 10px 25px;
+    }
+    .courses__title, .advantages__title {
+        font-size: 40px;
+    }
+    .courses__list-item {
+        font-size: 16px;
+    }
+    .courses__list-item {
+        padding: 10px 15px;
+    }
+    .courses__category-list-button {
+        font-size: 17px;
+        padding: 0;
+    }
+    .advantages__description {
+        width: 80%;
+    }
+    .cards__title {
+        font-size: 16px;
+    }
+    .advantages__rounded-information {
+        font-size: 18px;
+    }
+    .teacher__big-title {
+        font-size: 25px;
+    }
+    .footer__left .logo__text {
+        font-size: 32px;
+    }
+    .footer__left .logo__img {
+        min-width: 32px;
+        width: 100%;
+    }
+
+    /* Lesson */
+    .introduction__title {
+        font-size: 2.5em;
+    }
+    .lesson_part-title {
+        font-size: 2.3em;
+    }
+    .lesson__duration {
+        margin: 2px 2px 10px 2px;
+    }
+    .lesson__duration-claim {
+        flex-direction: column;
+    }
+    .lesson__duration::after {
+        display: none;
+    }
+    .lesson__duration-title, .lesson__duration-claim {
+        margin: 2px;
+    }
+    .lesson__duration p {
+        margin: 0;
+        line-height: 1.6;
+    }
+    .introduction__description,
+    .lesson__duration-claim {
+        font-size: 1.142em;
+    }
+    /* Modal */
+    .modal__content {
+        width: 90%;
+        flex-direction: column;
+        position: relative;
+        justify-content: flex-start;
+    }
+    .modal__left {
+        width: 100%;
+        height: 15%;
+        flex-direction: row;
+        clip-path: polygon(0 0, 90% 0%, 100% 100%, 0 100%);
+    }
+    .modal__left-logo {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .modal__left-center {
+        width: 70%;
+    }
+    .modal__left-bar {
+        clip-path: polygon(85% 0, 95% 0, 100% 100%, 90% 100%);
+        height: 70%;
+    }
+    .modal__left .modal__left-logo .logo__img {
+        width: 30px;
+        height: 30px;
+    }
+    .modal__left .logo__text {
+        font-size: 18px;
+    }
+    .modal__text {
+        font-size: 18px;
+        width: 100%;
+    }
+    .modal__right {
+        width: 100%;
+    }
+    .modal__login-signup {
+        margin: 0 auto;
+    }
+    .application_title {
+        font-size: 24px;
+    }
+    .application__content {
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+}
+
+/* Альбомный режим смартфонов и узкие экраны */
+@media screen and (max-width:630px) {
+    .wrapper__content {
+        border-radius: 70px 0 0 0;
+    }
+    .home-page__title {
+        font-size: 24px;
+    }
+    .slogan {
+        font-size: 16px;
+    }
+    .home-page__button {
+        font-size: 18px;
+        padding: 8px 18px;
+    }
+    .courses__title, .advantages__title {
+        font-size: 28px;
+        margin: 30px 5px;
+    }
+    .courses__list-item {
+        padding: 2px 5px;
+        font-size: 12px;
+    }
+    .courses__category-list {
+        padding: 0;
+    }
+    .courses__category-list-button {
+        font-size: 12px;
+        margin-top: 3px;
+    }
+    .courses__menu {
+        padding: 1px;
+    }
+    .lessons {
+        display: flex;
+        justify-content: center;
+    }
+    .advantage {
+        display: flex;
+        flex-direction: column;
+    }
+    .cards__advantage {
+        min-width: 100px;
+        width: 90%;
+    }
+    .advantages__rounded {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 5px;
+        margin: 0 auto;
+    }
+    .advantages__rounded-information {
+        font-size: 14px;
+        padding: 0;
+        margin: 10px 0;
+        text-align: center;
+    }
+    .teacher {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .card__teacher {
+        width: 90%;
+    }
+    .teacher__list-link {
+        font-size: 14px;
+        bottom: -25px;
+    }
+    .footer {
+        padding: 10px;
+    }
+    .footer__header{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+    .footer__left .logo__text {
+        font-size: 18px;
+    }
+    .footer__left .logo__text::after {
+        content: '';
+        position: absolute;
+        width: 10%;
+        height: 3px;
+        left: 0;
+        right: 0;
+        top: 60px;
+        background: #ffffff;
+        margin: 10px auto;
+    }
+    .footer__form {
+        width: 90%;
+        margin: 5px;
+    }
+    .footer__form .form__title {
+        margin-top: 10px;
+        text-align: center;
+        font-size: 24px;
+    }
+    .footer__body {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .modal__left .modal__left-logo .logo__img {
+        width: 20px;
+        height: 20px;
+    }
+    .modal__left .modal__left-logo .logo__text {
+        font-size: 14px;
+    }
+    .modal__text {
+        font-size: 14px;
+    }
+    .login-signup__list {
+        margin-bottom: 5px;
+    }
+    .form__container .form__row label b {
+        font-size: 12px;
+    }
+    .login-signup__link {
+        font-size: 14px;
+    }
+    .application_title {
+        font-size: 18px;
+    }
+    .modal__right {
+        overflow-y: scroll;
+    }
+
+    /* Lesson */
+    .intro__lesson {
+        flex-direction: column-reverse;
+    }
+    .intro__lesson-left, .intro__lesson-right {
+        width: 90%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+    .intro__lesson-image {
+        clip-path: none;
+        border-radius: 15px;
+        max-width: 250px;
+    }
+    .introduction__title {
+        font-size: 1.5em;
+    }
+    .lesson__enroll {
+        margin: 20px auto;
+    }
+    .lesson__description-link {
+        font-size: 1em;
+        padding: 10px;
+    }
+    .lesson__instructor-informations h4,
+    .lesson__instructor-informations p {
+        text-align: center;
+    }
+    .lesson__about p, .lesson__learning_detailled, .lesson__programs p {
+        font-size: 1.2em;
+    }
+    .lesson_part-title {
+        font-size: 1.8em;
+    }
+    strong {
+        font-size: 1em;
+    }
+}

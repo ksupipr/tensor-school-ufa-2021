@@ -1,20 +1,27 @@
 /**
  * Кнопка гамбургера при уменьщения размера окна
  */
-var hamburger = document.getElementsByClassName("header__hamburger");
-var header__menu = document.getElementsByClassName("header__menu");
-var header__right = document.getElementsByClassName("header__right");
+var hamburger = document.querySelector(".header__hamburger");
+var header__menu = document.querySelector(".header__menu");
+var header__right = document.querySelector(".header__right");
 
-hamburger[0].addEventListener("click", clicked);
+
+hamburger.addEventListener("click", clicked);
 
 function clicked(event) {
-    hamburger[0].classList.toggle("hamburger__bar-toggle");
-    if(header__menu[0].style.display == "none" || header__menu[0].style.display=="") {
-        header__menu[0].style.display = "flex";
-        header__right[0].style.display = "flex";
+    hamburger.classList.toggle("hamburger__bar-toggle");
+    if(header__menu.classList.contains('header__hamburger_inactive')) {
+        header__right.classList.remove('header__hamburger_inactive')
+        header__menu.classList.remove('header__hamburger_inactive')
+
+        header__right.classList.add('header__hamburger_active')
+        header__menu.classList.add('header__hamburger_active')
     }else {
-        header__menu[0].style.display = "none";
-        header__right[0].style.display = "none";
+        header__right.classList.remove('header__hamburger_active')
+        header__menu.classList.remove('header__hamburger_active')
+
+        header__right.classList.add('header__hamburger_inactive')
+        header__menu.classList.add('header__hamburger_inactive')
     }
 }
 
@@ -23,15 +30,8 @@ function clicked(event) {
  */
 
 function handleWindowChange(param) {
-    if(param.matches) {
-        if(header__menu[0].style.display == "none" || header__menu[0].style.display=="none") {
-            header__menu[0].style.display = "flex";
-            header__right[0].style.display = "flex";
-        }
-    }else {
-        header__menu[0].style.display = "none";
-        header__right[0].style.display = "none";
-    }
+    header__right.classList.remove('header__hamburger_active')
+    header__menu.classList.remove('header__hamburger_active')
 }
 
 var windowSize = window.matchMedia('(min-width: 980px)')
