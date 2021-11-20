@@ -1,0 +1,185 @@
+/* Lesson */
+.intro__lesson {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    position: relative;
+}
+.intro__lesson::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3.5px;
+    width: 90%;
+    background-color: #363636;
+    margin: 0 auto;
+}
+.intro__lesson-left {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.intro__lesson-right {
+    width: 35%;
+    display: flex;
+    align-items: center;
+}
+.introduction__title {
+    text-align: center;
+    margin: 0 10px;
+    font-size: 3em;
+    font-weight: bold;
+    position: relative;
+    padding: 20px;
+    position: relative;
+}
+.introduction__title::after {
+    position: absolute;
+    content: '';
+    width: 10%;
+    height: 3px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000;
+    margin: 0 auto;
+}
+.intro__lesson-image {
+    width: 100%;
+    height: auto;
+    clip-path: polygon(13% 0, 100% 0, 100% 87%, 90% 100%, 0 100%, 0 8%);
+}
+.introduction__description {
+    font-size: 18px;
+    text-align: justify;
+    padding: 10px 20px 0 0;
+}
+.lesson__duration-claim {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.lesson__duration, .lesson__claim {
+    width: 50%;
+    position: relative;
+}
+.lesson__duration::after {
+    content: '';
+    position: absolute;
+    width: 2.5px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000000;
+    height: 70%;
+    margin: auto 10px;
+}
+.lesson__duration-title {
+    font-size: 22px;
+}
+.lesson__exigences {
+    display: none;
+}
+.lesson__duration p, .lesson__claim p {
+    font-size: 16px;
+    margin: 10px 0;
+}
+.lesson__claim-list {
+    display: block;
+}
+.lesson__enroll {
+    margin: 20px 0;
+}
+.lesson__enroll-button {
+    text-decoration: none;
+    background-color: black;
+    color: #FFFFFF;
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 22px;
+    transition: all .3s;
+}
+.lesson__enroll-button:hover {
+    background-color: #FFFFFF;
+    color: #000000;
+    font-weight: 500;
+}
+.lesson__description {
+    margin: 50px 0;
+}
+.lesson__description-links {
+    background-color: #EFEFEF;
+    padding-left: 30px;
+    position: sticky;
+    top: 0;
+}
+.lesson__description-link {
+    display: inline-block;
+    margin: 0 20px 0 0;
+    text-decoration: none;
+    color: black;
+    font-size: 1.571em;
+    padding: 15px;
+}
+.lesson__about,
+.lesson__learning,
+.lesson__programs,
+.lesson__instructor {
+    width: 60%;
+    margin: 30px auto 10px auto;
+    padding: 45px 0 0 0;
+}
+.lesson_part-title {
+    font-size: 3em;
+    color: black;
+    font-weight: 700;
+    margin: 0;
+}
+.lesson__about p, .lesson__learning_detailled, .lesson__programs p{
+    font-size: 1.357em;
+    text-align: justify;
+    line-height: 1.6;
+}
+.lesson__instructor, .lesson__instructor-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lesson__instructor-details {
+    margin: 30px 0 0 0;
+    background-color: #04456a;
+    border-radius: 15px;
+    box-shadow: 5px 10px 20px #363636;
+    padding: 10px;
+}
+.lesson__instructor__img {
+    min-width: 100px;
+    width: 40%;
+    padding: 20px;
+}
+.lesson__instructor-informations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    color: #FFFFFF;
+}
+.lesson__instructor-informations h4 {
+    font-size: 22px;
+    margin: 0 0 15px 0;
+}
+.lesson__instructor-informations p {
+    font-size: 18px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lesson__instructor-informations p span {
+    display: block;
+    margin: 5px;
+}
