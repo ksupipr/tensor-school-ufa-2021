@@ -1,0 +1,128 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: API для работы с курсами
+  description: Работа с курсами. Позволяет отобразить
+  список курсов, создавать, редактировать и удалять 
+  курсы.
+  contact:
+    name: Машнин Максим
+    email: maksim.mashnin@mail.ru
+    url: tensor.ru
+  licence:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description: Swagger - сервер для тестовых запросов
+tags:
+  - name: teachers
+  description: Преподаватели, информация о них
+  - name: course
+  description: Курсы, есть возможность записаться на курс, посмотреть информацию
+paths:
+  /lessons:
+    get:
+      tags:
+        - students
+      summary: просмотр и поиск курсов
+      description: Получает список доступных курсов дл записи,поддерживает поиск
+      operationId: searchLessons
+      parametres:
+        - in: query
+          name: searchString
+          description: опциональный параметр для поиска курсов
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: limit
+          description: максимальное количество записей в ответе
+          schema:
+            type: integer
+            format: int32
+            minimu: 0
+            maximum: 25
+          responses:
+            '200':
+              description: выдате список курсов по заданным критериям
+            '400':
+              description: не корректные входные данные
+    put:
+      tags:
+        - teacher
+        summary: редактирование курса
+        description: устройство для изменение курса
+        operationId: putCourse
+        responses:
+        '200':
+          description: курс успешно изменен
+    post:
+      tags:
+        - teacher
+        summary: добавление курса
+        desсription: устройство для добавление курса
+        operationId: postCourse
+        responses:
+          '200':
+            description: курс успешно добавлен
+          '400':
+            description: не корректные входные данные
+  /students:
+    get:
+      tags:
+        - teacher
+        summary: поиск учеников, записавшихся на крус
+        operationId: getStudent
+        responses:
+          '200': 
+                description: ученик найден
+          '400':
+                description: некорректные входные данные
+    post:
+      tags:
+        - teacher
+        summary: добавление ученика на курс
+        operationId: postStudent
+        responses:
+          '200':
+                description: ученик успешно добавлен
+          '400':
+                description: некорректные входные данные
+components:
+  schemas:
+    LessonItem:
+      type: object
+      required:
+      - if
+      - name
+      - author
+      - releaseDate
+    propertirs:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+        example: Название курса
+      releaseDate:
+        type: string
+        format: date-time
+        example: '2021-11-23T09:12:33.001Z'
+      author:
+        $ref: '#/components/schemas/Author'
+User:
+    required:
+    - username
+    - userphone
+    - usersurname
+    type: object
+    properties:
+      username:
+        type: string
+      userphone:
+        type: string
+      email:
+        type: string
+
+

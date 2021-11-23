@@ -55,18 +55,27 @@ a {
    background: rgb(56, 26, 163);
 }
 .example {
-   padding-top: 117px;
+   padding-top: 130px;
 }
 .direction {
+   display: flex;
    padding-left: 147px;
 }
 .directions {
    display: flex;
-   margin-top: 160px;
+   padding-top: 20px;
+}
+.direct-img{
+   padding-bottom: 10px;
+   max-height: 100px;
+}
+.text-direct{
+   display: flex;
+   justify-content: center;
 }
 .item-direction {
-   display: flex;
-   padding-right: 129px;
+   display: grid;
+   padding-right: 120px;
 }
 .modal{
    display: none;
