@@ -1,0 +1,81 @@
+-- public.students definition
+
+-- Drop table
+
+-- DROP TABLE public.students;
+
+CREATE TABLE public.students (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	firstname varchar NOT NULL,
+	lastname varchar NOT NULL,
+	email varchar NOT NULL,
+	"password" varchar NOT NULL,
+	phone varchar NOT NULL,
+	CONSTRAINT students_pk PRIMARY KEY (id)
+);
+
+-- public.courses definition
+
+-- Drop table
+
+-- DROP TABLE public.courses;
+
+CREATE TABLE public.courses (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	info varchar NOT NULL,
+	regdate date NOT NULL,
+	CONSTRAINT courses_pk PRIMARY KEY (id)
+);
+
+-- public.lessons definition
+
+-- Drop table
+
+-- DROP TABLE public.lessons;
+
+CREATE TABLE public.lessons (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	info text NULL,
+	homework text NULL,
+	"date" date NOT NULL,
+	CONSTRAINT lessons_pk PRIMARY KEY (id)
+);
+
+-- public.stud_of_course definition
+
+-- Drop table
+
+-- DROP TABLE public.stud_of_course;
+
+CREATE TABLE public.stud_of_course (
+	course_id int8 NOT NULL,
+	student_it int8 NOT NULL,
+	CONSTRAINT stud_of_course_pk PRIMARY KEY (course_id, student_it)
+);
+
+
+-- public.stud_of_course foreign keys
+
+ALTER TABLE public.stud_of_course ADD CONSTRAINT course_fk FOREIGN KEY (course_id) REFERENCES public.courses(id) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE public.stud_of_course ADD CONSTRAINT stud_fk FOREIGN KEY (student_it) REFERENCES public.students(id) ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- public.lessons_of_course definition
+
+-- Drop table
+
+-- DROP TABLE public.lessons_of_course;
+
+CREATE TABLE public.lessons_of_course (
+	course_id int8 NOT NULL,
+	lesson_id int8 NOT NULL,
+	CONSTRAINT lessons_of_course_pk PRIMARY KEY (course_id, lesson_id)
+);
+
+
+-- public.lessons_of_course foreign keys
+
+ALTER TABLE public.lessons_of_course ADD CONSTRAINT course_fk FOREIGN KEY (course_id) REFERENCES public.courses(id) ON DELETE SET NULL ON UPDATE CASCADE;
+ALTER TABLE public.lessons_of_course ADD CONSTRAINT lessons_fk FOREIGN KEY (lesson_id) REFERENCES public.lessons(id) ON DELETE SET NULL ON UPDATE CASCADE;
+
