@@ -80,10 +80,6 @@ class Popup {
       align-items: flex-end
   }
 
-  .model-close__btn {
-    cursor: pointer;
-  }
-
   .model-content {
     height: 80%;
     display: flex;
@@ -98,6 +94,7 @@ class Popup {
   }
 
   .model-content-btn {
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
