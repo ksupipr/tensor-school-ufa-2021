@@ -1,0 +1,198 @@
+---
+openapi: 3.0.0
+info:
+  title: API для школы Tensor
+  description: Работа с курсами и формой записи.
+  contact:
+    name: Агзамов Ильнар
+    email: agzamov001@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/Keferd/Tensor/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: student
+  description: Учащиеся
+- name: course
+  description: Курсы
+- name: lesson
+  description: Уроки
+paths:
+  /student:
+    post:
+      tags:
+      - student
+      summary: Создать студента
+      description: Создает учетную запись студента
+      operationId: createStudent
+      requestBody:
+        description: Создает учетную запись студента
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      responses:
+        default:
+          description: successful operation
+  /deleteStudent:
+    delete:
+      tags:
+      - student
+      summary: Удалить студента
+      description: Удалить учетную запись студента
+      operationId: deleteStudent
+      responses:
+        default:
+          description: successful operation
+  /getStudent:
+    get:
+      tags:
+      - student
+      summary: Получить студента
+      description: Получить учетную запись студента
+      operationId: getStudent
+      responses:
+        default:
+          description: Получить учетную запись студента
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+  /course:
+    post:
+      tags:
+      - course
+      summary: Создать курс
+      description: Создает курс
+      operationId: createCourse
+      requestBody:
+        description: Создает курс
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Course'
+        required: true
+      responses:
+        default:
+          description: successful operation
+  /deleteCourse:
+    delete:
+      tags:
+      - course
+      summary: Удалить курс
+      description: Удалить курс
+      operationId: deleteCourse
+      responses:
+        default:
+          description: successful operation
+  /getCourse:
+    get:
+      tags:
+      - course
+      summary: Получить курс
+      description: Получить курс
+      operationId: getCourse
+      responses:
+        default:
+          description: Получить курс
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+  /lesson:
+    post:
+      tags:
+      - lesson
+      summary: Создать урок
+      description: Создает урок
+      operationId: createLesson
+      requestBody:
+        description: Создает урок
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Lesson'
+        required: true
+      responses:
+        default:
+          description: successful operation
+  /deleteLesson:
+    delete:
+      tags:
+      - lesson
+      summary: Удалить урок
+      description: Удалить урок
+      operationId: deleteLesson
+      responses:
+        default:
+          description: successful operation
+  /getLesson:
+    get:
+      tags:
+      - lesson
+      summary: Получить урок
+      description: Получить урок
+      operationId: getLesson
+      responses:
+        default:
+          description: Получить урок
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        phone:
+          type: string
+      xml:
+        name: Student
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        info:
+          type: string
+        regDate:
+          type: string
+          format: date
+      xml:
+        name: Course
+    Lesson:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        info:
+          type: string
+        homework:
+          type: string
+        date:
+          type: string
+          format: date
+      xml:
+        name: Lesson
