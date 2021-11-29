@@ -38,30 +38,137 @@ paths:
       responses:
         default:
           description: successful operation
-  /deleteStudent:
-    delete:
-      tags:
-      - student
-      summary: Удалить студента
-      description: Удалить учетную запись студента
-      operationId: deleteStudent
-      responses:
-        default:
-          description: successful operation
-  /getStudent:
+  /students:
     get:
       tags:
       - student
-      summary: Получить студента
-      description: Получить учетную запись студента
-      operationId: getStudent
+      summary: Получить список всех студентов
+      description: Возвращает всех студентов
+      operationId: getStudents
       responses:
-        default:
-          description: Получить учетную запись студента
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+  /student/{studentId}:
+    get:
+      tags:
+      - student
+      summary: Найти студента по ID
+      description: Возвращает определенного студента
+      operationId: getStudentById
+      parameters:
+      - name: studentId
+        in: path
+        description: ID студента для поиска
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Student'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Student'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Student not found
+    post:
+      tags:
+      - student
+      summary: Изменить студента по ID
+      operationId: updateStudentByID
+      parameters:
+      - name: studentId
+        in: path
+        description: ID студента для обновления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/student_studentId_body'
+      responses:
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+      - student
+      summary: Удалить студента по ID
+      operationId: deleteStudentByID
+      parameters:
+      - name: studentId
+        in: path
+        description: ID студента для удаления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Student not found
+  /student/{courseId}:
+    get:
+      tags:
+      - student
+      - course
+      summary: Найти студентов по ID курса
+      description: Возвращает студентов курса
+      operationId: getStudentByCourseId
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для поиска
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Student'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
   /course:
     post:
       tags:
@@ -79,30 +186,101 @@ paths:
       responses:
         default:
           description: successful operation
-  /deleteCourse:
-    delete:
-      tags:
-      - course
-      summary: Удалить курс
-      description: Удалить курс
-      operationId: deleteCourse
-      responses:
-        default:
-          description: successful operation
-  /getCourse:
+  /courses:
     get:
       tags:
       - course
-      summary: Получить курс
-      description: Получить курс
-      operationId: getCourse
+      summary: Получить список всех курсов
+      description: Возвращает все курсы
+      operationId: getCourses
       responses:
-        default:
-          description: Получить курс
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Course'
+  /course/{courseId}:
+    get:
+      tags:
+      - course
+      summary: Найти курс по ID
+      description: Возвращает определенный курс
+      operationId: getCourseById
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для поиска
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Course'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
+    post:
+      tags:
+      - course
+      summary: Изменить курс по ID
+      operationId: updateCourseByID
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для обновления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/course_courseId_body'
+      responses:
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+      - course
+      summary: Удалить курс по ID
+      operationId: deleteCourseByID
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для удаления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
   /lesson:
     post:
       tags:
@@ -120,30 +298,158 @@ paths:
       responses:
         default:
           description: successful operation
-  /deleteLesson:
-    delete:
-      tags:
-      - lesson
-      summary: Удалить урок
-      description: Удалить урок
-      operationId: deleteLesson
-      responses:
-        default:
-          description: successful operation
-  /getLesson:
+  /lessons:
     get:
       tags:
       - lesson
-      summary: Получить урок
-      description: Получить урок
-      operationId: getLesson
+      summary: Получить список всех уроков
+      description: Возвращает все уроки
+      operationId: getLessons
       responses:
-        default:
-          description: Получить урок
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+  /lesson/{lessonId}:
+    get:
+      tags:
+      - lesson
+      summary: Найти урок по ID
+      description: Возвращает определенный урок
+      operationId: getLessonById
+      parameters:
+      - name: lessonId
+        in: path
+        description: ID урока для поиска
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/Lesson'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Lesson not found
+    post:
+      tags:
+      - lesson
+      summary: Изменить урок по ID
+      operationId: updateLessonByID
+      parameters:
+      - name: lessonId
+        in: path
+        description: ID урока для обновления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/lesson_lessonId_body'
+      responses:
+        "405":
+          description: Invalid input
+    delete:
+      tags:
+      - lesson
+      summary: Удалить урок по ID
+      operationId: deleteLessonByID
+      parameters:
+      - name: lessonId
+        in: path
+        description: ID урока для удаления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Lesson not found
+  /lesson/{courseId}:
+    get:
+      tags:
+      - lesson
+      - course
+      summary: Найти уроки по ID курса
+      description: Возвращает уроки курса
+      operationId: getLessonByCourseId
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для поиска
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+            application/xml:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Lesson'
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
+    delete:
+      tags:
+      - lesson
+      - course
+      summary: Удалить уроки по ID курса
+      operationId: deleteLessonByCourseID
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса для удаления
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Course not found
 components:
   schemas:
     Student:
@@ -196,3 +502,21 @@ components:
           format: date
       xml:
         name: Lesson
+    student_studentId_body:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Обновить имя студента
+    course_courseId_body:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Обновить имя курса
+    lesson_lessonId_body:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Обновить имя урока
