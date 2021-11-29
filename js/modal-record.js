@@ -12,6 +12,15 @@ class Popup {
     }
 
     destroy() {
+        this.container.querySelector('.model-link-block_cancel').removeEventListener(
+            'click', (e) => { this.destroy();  }
+        );
+        this.container.querySelector('.model-background__close').removeEventListener(
+            'click', (e) => { this.destroy();  }
+        );
+        this.container.querySelector('.model-close__btn').removeEventListener(
+            'click', (e) => { this.destroy();  }
+        );
         this.container.remove();
     }
 
