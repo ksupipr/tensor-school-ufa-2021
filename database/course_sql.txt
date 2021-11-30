@@ -1,0 +1,19 @@
+-- public.course definition
+
+-- Drop table
+
+-- DROP TABLE public.course;
+
+CREATE TABLE public.course (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	desc_date jsonb NULL,
+	start_date date NULL,
+	course_id int8 NULL,
+	CONSTRAINT course_pk PRIMARY KEY (id)
+);
+
+
+-- public.course foreign keys
+
+ALTER TABLE public.course ADD CONSTRAINT course_fk FOREIGN KEY (course_id) REFERENCES public.teacher(id) ON DELETE SET NULL;

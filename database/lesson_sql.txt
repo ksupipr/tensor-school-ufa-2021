@@ -1,0 +1,19 @@
+-- public.lesson definition
+
+-- Drop table
+
+-- DROP TABLE public.lesson;
+
+CREATE TABLE public.lesson (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	"name" varchar NOT NULL,
+	desc_data jsonb NULL,
+	start_date date NULL,
+	lesson_group_id int8 NOT NULL,
+	CONSTRAINT lesson_pk PRIMARY KEY (id)
+);
+
+
+-- public.lesson foreign keys
+
+ALTER TABLE public.lesson ADD CONSTRAINT lesson_fk_1 FOREIGN KEY (lesson_group_id) REFERENCES public.course(id) ON DELETE RESTRICT ON UPDATE CASCADE;
