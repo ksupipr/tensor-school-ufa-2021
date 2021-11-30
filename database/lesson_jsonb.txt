@@ -1,0 +1,7 @@
+{
+	"description": "information about lesson",
+	"number of hours": "2",
+	"schedule": {
+		"morning": true
+	}
+}

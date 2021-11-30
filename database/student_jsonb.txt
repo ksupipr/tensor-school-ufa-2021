@@ -1,0 +1,11 @@
+{
+	"description": "student indormation",
+	"education": "master of science",
+	"course of study": 1,
+	"email": "mentoz.97@mail.ru",
+	"age": 24,
+	"phone_number": 89373393911,
+	"password": qqq,
+	"group_№": 1,
+	"form_of_training": "evening"
+}

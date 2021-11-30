@@ -1,0 +1,7 @@
+{
+	"description": "teacher information",
+	"education": "doctor of science",
+	"email": "ianishenko@plgn.ru",
+	"age": 38,
+	"password":d32749f8hoewivbh4378
+}

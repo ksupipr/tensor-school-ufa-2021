@@ -1,0 +1,5 @@
+{
+	"description": "information about course",
+	"number of hours": "56",
+	"cost": 10000
+}

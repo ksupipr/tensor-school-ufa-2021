@@ -1,0 +1,14 @@
+-- public.teacher definition
+
+-- Drop table
+
+-- DROP TABLE public.teacher;
+
+CREATE TABLE public.teacher (
+	id int8 NOT NULL GENERATED ALWAYS AS IDENTITY,
+	first_name varchar NOT NULL,
+	last_name varchar NOT NULL,
+	desc_data jsonb NULL,
+	teacher_id int8 NOT NULL,
+	CONSTRAINT teacher_pk PRIMARY KEY (id)
+);

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang= "ru">
+    <head>
+        <title> Школа программирования Тензор</title>
+        <link rel="stylesheet" href="css/style.css">
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <div class="wrapper-contain"> 
+
+                <div class="header lock-padding"> <!-- шапка сайта -->
+                    <div class="header__container container">
+                        <a href="index.html"><img class="header__logo" src="img/1.png" alt="Логотип компании Тензор" /></a>
+                        <nav class="header__menu menu">
+                            <ul class="menu__list">
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">
+                                    О профессии 
+                                    </a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">
+                                    Как учим 
+                                    </a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">
+                                    Поддержка     
+                                    </a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">
+                                    Программа
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <a href="#popup" class="header__button popup-link">Начать учиться</a> 
+                    </div>
+                </div>
+
+                <div class="main"> <!-- основное поле информации сайта -->
+                    <div class="main-menu">
+                        <div class="main-menu__background">
+                            <img class="main-menu__background_img1 img1" src="img/4.png" alt="фон" />
+                        </div>
+                        <div class="main-menu__front">
+                            <h3>Школа программирования</h3>
+                            <p>Для начинающих</p>
+                            <a class="main-menu__front_button button2" href="kurs.html">Список уроков</a>
+                        </div>
+                    </div>   
+                </div>
+
+                <div class="footer"><!-- подвал сайта -->
+                    <div class="footer__container container1">
+                        <nav class="footer__menu menu">
+                            <ul class="menu__foot-list">
+                                <li class="menu__foot-item">
+                                    <a href="" class="menu__foot-link">
+                                    О нас
+                                    </a>
+                                </li>
+                                <li class="menu__foot-item">
+                                    <a href="" class="menu__foot-link">
+                                    Проекты 
+                                    </a>
+                                </li>
+                                <li class="menu__foot-item">
+                                    <a href="" class="menu__foot-link">
+                                    Контактный тлф: 8 800 555 3535     
+                                    </a>
+                                </li>
+                                <li class="menu__foot-item">
+                                    <a href="" class="menu__foot-link">
+                                    Наши группы в соц сетях
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="footer__vk-inst">
+                            <a href="index.html"><img class="footer__vk-inst_button1 button1" src="img/5.png" alt="Логотип компании Тензор" /></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>    
+        <div id="popup" class="popup">
+            <!--<a href="#header" class="popup__area"></a>-->
+            <div class= "popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup">X</a>
+                    <div class="popup__title">Форма регистрации</div>
+                    <div class="popup__text">
+                        <div class="text__field">
+                            <div class="text__field-name">
+                                <label for="ФИО"><b>ФИО</b></label>
+                                <input type="text" placeholder="ФИО" name="ФИО">
+                            </div>
+                            <div class="text__field-date">
+                                <label for="Дата рождения"><b>Дата рождения</b></label>
+                                <input type="text" placeholder="XX.XX.XXXX" name="Дата рождения">
+                            </div>
+                            <div class="text__field-ed">
+                                <label for="Образование"><b>Образование</b></label>
+                                <input type="text" placeholder="Образование" name="Образование" required list="list">
+                                <datalist id="list">
+                                    <option value="Полное высшее">
+                                    <option value="Неполное высшее">
+                                    <option value="Среднее">
+                                </datalist>
+                            </div>
+                            <div class="text__field-email">
+                                <label for="email"><b>Email</b></label>
+                                <input type="text" placeholder="Email" name="email">
+                            </div>
+                            <div class="text__field-course">
+                                <label for="Интересующий курс"><b>Интересующий курс</b></label>
+                                <input type="text" placeholder="Интересующий курс" name="Интересующий курс" required list="list1">
+                                <datalist id="list1">
+                                    <option value="Основы Python">
+                                    <option value="Основы Java Script">
+                                    <option value="Введение во Frontend">
+                                    <option value="Введение в Backend"> 
+                                </datalist>
+                            </div>
+                            <div class="text__field-check">
+                                <label>
+                                    <input type="checkbox" checked="checked" name="checked" style="margin-bottom:15px"> Готов работать по 20 часов в неделю?
+                                </label>
+                            </div> 
+                        </div>
+                        <div class="text__field-reg">
+                            <a  class="text__field-reg_button popup-link" href="#popup_2">Зарегистрироваться</a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div id="popup_2" class="popup"> 
+            <div class= "popup__body">
+                <div class="popup__content">
+                    <a href="#header" class="popup__close close-popup">X</a>
+                    <div class="popup__title">Поздравляем!</div>
+                    <div class="popup__text">
+                        <p>Вы зачислены в школу программирования "Тензор". В ближайшее время Вам на почту придет инструкция с дальнейшими действиями.
+                        </p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <script src="js/popup.js"></script>  
+    </body>
+</html>
+
