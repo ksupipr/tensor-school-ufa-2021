@@ -1,0 +1,101 @@
+.header {
+    // .header__inner
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    max-width: 100%;
+    width: 100%;
+    background-color: rgba(22, 39, 71, 0.9);
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    // .header__logo
+
+    &__logo {
+        width: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        img {
+            max-width: 100%;
+            border-radius: 50%;
+            @media (max-width: 800px) {
+                width: 50px;
+            }
+        }
+    }
+
+    // .header__nav
+
+    &__nav {
+        li {
+            margin-right: 40px;
+            // &:last-child {
+            //     margin: 0;
+            // }
+            @media (max-width: 800px) {
+                margin-bottom: 15px;
+            }
+        }
+        @media (max-width: 800px) {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: rgba(22, 39, 71, 0.9);
+        }
+    }
+    &__burger {
+        display: none;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        span {
+            background-color: #fff;
+            position: absolute;
+            left: 0;
+            bottom: 9px;
+            width: 100%;
+            height: 2px;
+        }
+        &:before,
+        &:after {
+            content: "";
+            position: absolute;
+            background-color: #fff;
+            width: 100%;
+            height: 2px;
+            transition: all 0.3s ease;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        @media (max-width: 800px) {
+            display: block;
+        }
+    }
+}
+.header__burger.active {
+    span {
+        transform: scale(0);
+    }
+    &::before {
+        transform: rotate(45deg);
+        top: 9px;
+    }
+    &::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+    }
+}

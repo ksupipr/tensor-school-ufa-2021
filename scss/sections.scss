@@ -1,0 +1,44 @@
+.section {
+    // .about__title
+    padding-bottom: 80px;
+    &__title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 48px;
+        &::after {
+            content: "";
+            display: block;
+            width: 120px;
+            height: 2px;
+            background-color: #f69e1a;
+            margin: 50px auto;
+        }
+        @media (max-width: 800px) {
+            font-size: 30px;
+        }
+    }
+    // .about__row
+
+    &__row {
+        display: flex;
+        margin: 0 -30px;
+        flex-wrap: wrap;
+        @media (max-width: 1200px) {
+            max-width: 510px;
+            margin: 0 auto;
+        }
+    }
+
+    // .about__course
+
+    &__course {
+        padding: 0 30px;
+        // background-color: #244669;
+        flex: 1;
+        @media (max-width: 1200px) {
+            flex-basis: 100%;
+            margin-bottom: 20px;
+            padding: 0;
+        }
+    }
+}

@@ -1,0 +1,152 @@
+---
+openapi: 3.0.0
+info:
+  title: TensorSchool API
+  description: |
+    API для школы программирования
+  contact:
+    name: Зуев Павел
+    email: skinyman1964@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/skinyman1964/TensorSchoolAPI/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: student
+  description: Информация о учениках
+- name: course
+  description: Информация о курсах
+paths:
+  /course:
+    put:
+      tags:
+      - course
+      summary: Обновление информации о курсе
+      operationId: updateCourse
+      responses:
+        "404":
+          description: Курс не найден
+        "200":
+          description: Курс успешно обновился
+    post:
+      tags:
+      - course
+      summary: Добавление нового курса в школу
+      operationId: addCourse
+      responses:
+        "405":
+          description: Неккоректный ввод данных
+        "200":
+          description: Успешное добавление курса
+  /lessons/{courseId}:
+    get:
+      tags:
+      - course
+      summary: Получение списка уроков
+      operationId: getCoursesInfo
+      parameters:
+      - name: courseId
+        in: path
+        description: ID курса
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 0
+          type: integer
+      responses:
+        "200":
+          description: Получение информации о уроках на курсе
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Course'
+        "404":
+          description: нет такого курса
+  /student:
+    post:
+      tags:
+      - student
+      summary: Добавление ученика в школу
+      operationId: AddStudent
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        "200":
+          description: Все ок
+  /students:
+    get:
+      tags:
+      - student
+      summary: Получение списка учеников, записавшихся в школу
+      responses:
+        "200":
+          description: Все ок
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserArray'
+components:
+  schemas:
+    UserArray:
+      type: array
+      items:
+        $ref: '#/components/schemas/User'
+    Course:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        coursename:
+          type: string
+        courseinfo:
+          type: string
+        courselessons:
+          type: array
+          items:
+            $ref: '#/components/schemas/Course_courselessons'
+      example:
+        id: 1
+        coursename: UI/UX
+        courseinfo: Курс по дизайну
+        courselessons:
+        - courseTopic: Прототипирование
+          topicLessons:
+          - урок по Дизайну
+          - Композиция и цвет
+        - courseTopic: Дизайн мобильных интерфейсов
+          topicLessons:
+          - урок по Дизайну
+          - Композиция и цвет
+    User:
+      required:
+      - username
+      - userphone
+      - usersurname
+      type: object
+      properties:
+        username:
+          type: string
+        usersurname:
+          type: string
+        userphone:
+          type: string
+        email:
+          type: string
+    Course_courselessons:
+      type: object
+      properties:
+        courseTopic:
+          type: string
+        topiclessons:
+          type: array
+          items:
+            type: string

@@ -19,25 +19,25 @@ burger.addEventListener("click", function (event) {
 })
 
 // Modal window
-let modal = document.querySelector("#simpleModal");
-let modal2 = document.querySelector("#lessonModal");
-let modalBtn = document.querySelector(".card__button");
-let modalBtn2 = document.querySelector(".reviews__button");
-let modalCloseBtn = document.querySelectorAll(".modal__closebtn");
-let modalCourseButton = document.querySelectorAll(".course__button");
-modalCourseButton.forEach(item => {
-    item.addEventListener("click", (event) => {
-        event.preventDefault();
-        document.body.classList.toggle("no-scroll");
-        modal2.style.display = "block";
-    });
-});
-modalBtn.addEventListener("click", openModal);
-modalBtn2.addEventListener("click", openModal);
-modalCloseBtn.forEach(item => {
+// let modal = document.querySelector("#simpleModal");
+// let modal2 = document.querySelector("#lessonModal");
+// let modalBtn = document.querySelector(".card__button");
+// let modalBtn2 = document.querySelector(".reviews__button");
+// let modalCloseBtn = document.querySelectorAll(".modal__closebtn");
+// let modalCourseButton = document.querySelectorAll(".course__button");
+// modalCourseButton.forEach(item => {
+//     item.addEventListener("click", (event) => {
+//         event.preventDefault();
+//         document.body.classList.toggle("no-scroll");
+//         modal2.style.display = "block";
+//     });
+// });
+// modalBtn.addEventListener("click", openModal);
+// modalBtn2.addEventListener("click", openModal);
+// modalCloseBtn.forEach(item => {
 
-    item.addEventListener("click", closeModal);
-});
+//     item.addEventListener("click", closeModal);
+// });
 window.addEventListener("click", (event) => {
     switch (event.target) {
         case modal:
@@ -50,30 +50,18 @@ window.addEventListener("click", (event) => {
             break;
     }
 });
-function openModal(event) {
-    event.preventDefault();
-    document.body.classList.toggle("no-scroll");
-    modal.style.display = 'block';
-}
-function closeModal(event) {
-    event.preventDefault();
-    document.body.classList.toggle("no-scroll");
-    modal.style.display = 'none';
-    modal2.style.display = 'none';
+// function openModal(event) {
+//     event.preventDefault();
+//     document.body.classList.toggle("no-scroll");
+//     modal.style.display = 'block';
+// }
+// function closeModal(event) {
+//     event.preventDefault();
+//     document.body.classList.toggle("no-scroll");
+//     modal.style.display = 'none';
+//     modal2.style.display = 'none';
 
-}
+// }
 
 // Accordion 
-const accordionHeaders = document.querySelectorAll(".accordion__header");
-accordionHeaders.forEach(item => {
-    item.addEventListener("click", () => {
-        item.classList.toggle("active");
-        const accordionBody = item.nextElementSibling;
-        if (item.classList.contains("active")) {
-            accordionBody.style.maxHeight = accordionBody.scrollHeight + "px";
-        } else {
-            accordionBody.style.maxHeight = 0;
-        }
-    });
-});
 
