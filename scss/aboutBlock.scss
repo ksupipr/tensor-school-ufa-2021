@@ -1,0 +1,37 @@
+.about {
+    padding: 20px 20px 0;
+    min-height: 350px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    background: url("../img/aboutbg.jpg") center/cover no-repeat;
+    // .about__info
+    position: relative;
+    &__info {
+        max-width: 500px;
+        font-size: 24px;
+        line-height: 28px;
+        @media (max-width: 800px) {
+            background-color: #eee3d2;
+            padding: 15px;
+            border-radius: 20px;
+        }
+    }
+    @media (max-width: 800px) {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    // .about__logo
+
+    &__logo {
+        width: 360px;
+        align-self: flex-end;
+        max-width: 100%;
+        transition: transform 0.2s ease;
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+    }
+}

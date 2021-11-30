@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    background-color: #eee3d2;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style: none;
+}

@@ -1,0 +1,64 @@
+.card {
+    max-width: 500px;
+    border-radius: 25px;
+    color: #fff;
+    padding: 0 15px;
+    ul {
+        padding-left: 15px;
+    }
+    &__title {
+        text-align: center;
+        font-size: 36px;
+        font-weight: 400;
+        margin-top: 30px;
+        @media (max-width: 800px) {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+    }
+    &__features {
+        font-weight: 400;
+        font-size: 24px;
+        @media (max-width: 800px) {
+            font-size: 16px;
+        }
+        li {
+            position: relative;
+            padding-left: 35px;
+            &::before {
+                content: "";
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                top: 4px;
+                left: 0;
+                background: url("../img/icons/circle.png") no-repeat;
+                @media (max-width: 800px) {
+                    top: 0;
+                }
+            }
+            margin-bottom: 36px;
+            @media (max-width: 800px) {
+                margin-bottom: 16px;
+            }
+            @media (max-width: 800px) {
+                margin-bottom: 16px;
+            }
+        }
+        // margin-bottom: 40px;
+        @media (max-width: 800px) {
+            font-size: 16px;
+        }
+    }
+    &__button {
+        background-color: #162747;
+        color: #fff;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 30px;
+        &:hover {
+            background-color: #000;
+        }
+    }
+}

@@ -1,0 +1,93 @@
+.reviews {
+    padding: 20px 110px;
+    min-height: 240px;
+    background-color: #244669;
+    // .reviews__item
+    &__item {
+        position: relative;
+        padding-left: 240px;
+        @media (max-width: 800px) {
+            padding: 0;
+            text-align: center;
+        }
+    }
+    @media (max-width: 800px) {
+        padding: 10px 40px;
+    }
+
+    // .reviews__photo
+
+    &__photo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 180px;
+        // max-width: 100%;
+        border-radius: 50%;
+        display: block;
+        border: 1px solid #eb9b24;
+        @media (max-width: 1200px) {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        @media (max-width: 800px) {
+            top: auto;
+            transform: none;
+            position: static;
+            margin: 0 auto;
+        }
+    }
+
+    // .reviews__text
+
+    &__text {
+        padding: 40px 0 0 0;
+        font-size: 24px;
+        color: #fff;
+        font-weight: 300;
+        @media (max-width: 1200px) {
+            padding: 20px 0 0 0;
+        }
+        @media (max-width: 800px) {
+            padding: 10px 0 0 0;
+            font-size: 16px;
+        }
+    }
+
+    // .reviews__sign
+
+    &__sign {
+        margin-top: 60px;
+        font-size: 28px;
+        font-weight: 700;
+        color: #eb9b24;
+        @media (max-width: 1200px) {
+            margin: 30px 0;
+        }
+        @media (max-width: 800px) {
+            font-size: 20px;
+        }
+    }
+    &__button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        background-color: #eb9b24;
+        color: #fff;
+        font-weight: 300;
+        &:hover {
+            background-color: #a76503;
+        }
+        @media (max-width: 1200px) {
+            position: static;
+            width: fit-content;
+            margin-top: 20px;
+            display: block;
+        }
+        @media (max-width: 800px) {
+            margin: 0 auto;
+        }
+    }
+}
